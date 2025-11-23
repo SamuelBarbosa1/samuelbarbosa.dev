@@ -9,13 +9,13 @@
     <link rel="stylesheet" href="/ferstock.html">
     <!-- TITLE ICON -->
     <link rel="shortcut icon" href="src/web/favicon.ico" type="image/x-icon">
-    <title>Samuel Barbosa | Developer portfólio</title>
+    <title>Samuel Barbosa | Full-stack Developer Portfolio</title>
     <!-- SEO -->
     <meta name="author" content="Samuel Barbosa de Oliveira" />
     <meta name="keywords" content="portfolio, portfólio, back-end, backend,
-            C#, .NET, restapi, rest-api, TypeScript, git, Windows" />
+            Golang, JavaScript, TypeScript, React Native, Node.js, Python, MySQL, PostgreSQL, Docker, Linux, Git" />
     <meta name="description"
-        content="Desenvolvedor Python com experiência em REST API construída em Django e Flask, assim como na manipulação de banco de dados SQL e NoSQL; conhecimentos em Docker, Docker-compose e linux também são apresentados." />
+        content="Full-stack developer specializing in Golang, JavaScript, TypeScript, React Native, Node.js, Python, MySQL, PostgreSQL, Docker, Linux, and Git. Explore my projects and technical skills." />
     <!-- BASE CSS -->
     <link rel="stylesheet" href="src/css/reset.css">
     <link rel="stylesheet" href="src/css/main.css">
@@ -35,10 +35,14 @@
 </head>
 
 <body>
-    <header class="justify-content-center pt-2 sticky-sm-top">
+    <header class="d-flex justify-content-between align-items-center pt-2 sticky-sm-top">
+        <div></div>
         <div class="logo">
             <h1><span>{</span>Samuel <span> /</span>
                 Portfolio<span>}</span></h1>
+        </div>
+        <div class="cv-button-container">
+            <a href="Currículo_Samuel_Barbosa_TI_Logistica.pdf" download class="cv-download-btn underline-anime">Download CV</a>
         </div>
     </header>
     <main>
@@ -47,9 +51,9 @@
                 flex-row w-full ">
             <div class="bio d-inline-block text-center text-md-start
                     text-white">
-                <h2 class="text-center text-md-start">Hi there my name is </h2>
+                <h2 class="text-center text-md-start">Hello, I'm</h2>
                 <h3 class="" id="nome"><span>{</span>Samuel<span>}</span></h3>
-                <p>I'm a back-end developer and <br> studyding in the back-end.</p>
+                <p>Full-stack Developer<br>Specializing in modern web technologies</p>
             </div>
             <img src="src/web/nave.png" alt="Ilustração
                     de um homem sentado em um computador" class="d-none
@@ -69,33 +73,38 @@
 
                 <div class="mx-auto">
                     <ul class="grid-container mx-auto">
-                        <li onclick="mostrarDescricao('C#')" class="underline-anime cards
-                                grid-item">
-                            <i class="devicon-csharp-line-wordmark"></i>
+                        <li onclick="mostrarDescricao('Golang')" class="underline-anime cards grid-item">
+                            <i class="devicon-go-original-wordmark"></i>
                         </li>
-                        <li onclick="mostrarDescricao('.NET')" class="underline-anime cards grid-item">
-                            <i class="devicon-dot-net-plain-wordmark"></i>
+                        <li onclick="mostrarDescricao('JavaScript')" class="underline-anime cards grid-item">
+                            <i class="devicon-javascript-plain"></i>
                         </li>
-                        <!-- <li onclick="mostrarDescricao('Azure')"
-                                class="underline-anime cards grid-item">
-                                <i class="devicon-azure-plain-wordmark"></i>
-                            </li>-->
-                        <li onclick="mostrarDescricao('Windows')" class="underline-anime cards grid-item">
-                            <i class="devicon-windows8-original"></i>
+                        <li onclick="mostrarDescricao('TypeScript')" class="underline-anime cards grid-item">
+                            <i class="devicon-typescript-plain"></i>
                         </li>
-                        <!-- <li onclick="mostrarDescricao('TypeScript')" class="underline-anime cards grid-item">
-                            <i class="devicon-typescript-original"></i>
-                        </li>-->
+                        <li onclick="mostrarDescricao('React Native')" class="underline-anime cards grid-item">
+                            <i class="devicon-react-original-wordmark"></i>
+                        </li>
+                        <li onclick="mostrarDescricao('Node.js')" class="underline-anime cards grid-item">
+                            <i class="devicon-nodejs-plain-wordmark"></i>
+                        </li>
+                        <li onclick="mostrarDescricao('Python')" class="underline-anime cards grid-item">
+                            <i class="devicon-python-plain-wordmark"></i>
+                        </li>
                         <li onclick="mostrarDescricao('MySQL')" class="underline-anime cards grid-item">
                             <i class="devicon-mysql-plain-wordmark"></i>
                         </li>
+                        <li onclick="mostrarDescricao('PostgreSQL')" class="underline-anime cards grid-item">
+                            <i class="devicon-postgresql-plain-wordmark"></i>
                         </li>
-                        <li onclick="mostrarDescricao('GIT')" class="underline-anime cards grid-item">
+                        <li onclick="mostrarDescricao('Docker')" class="underline-anime cards grid-item">
+                            <i class="devicon-docker-plain-wordmark"></i>
+                        </li>
+                        <li onclick="mostrarDescricao('Linux')" class="underline-anime cards grid-item">
+                            <i class="devicon-linux-plain"></i>
+                        </li>
+                        <li onclick="mostrarDescricao('Git')" class="underline-anime cards grid-item">
                             <i class="devicon-git-plain"></i>
-                        </li>
-                        </li>
-                        <li onclick="mostrarDescricao('Javascript')" class="underline-anime cards grid-item">
-                            <i class="devicon-javascript-plain"></i>
                         </li>
                     </ul>
                 </div>
@@ -106,36 +115,67 @@
             <div class="projeto-grid px-sm-0 px-md-3 px-lg-5">
                 <div class="projeto border-anime border-active">
                     <div class="mt-auto h-100 d-flex flex-column justify-content-between">
-                        <p class="type">C# + .NET
-                            <i class="devicon-csharp-line-wordmark"></i>
+                        <p class="type">React Native App 
+                            <i class="devicon-react-original-wordmark"></i>
                         </p>
-                        <h3 class="">Coffee-Shop</h3>
-                        <p class="projeto-descricao">A cafeteria system</p>
-                        <a href="https://github.com/SamuelBarbosa1/Coffee-Shop" target="_blank" class="">To view project</a>
+                        <h3 class="">MeusGastos - App de Controle Financeiro</h3>
+                        <p class="projeto-descricao">Um aplicativo mobile para controle de finanças pessoais desenvolvido em React Native com Expo.</p>
+                        <a href="https://github.com/SamuelBarbosa1/MeusGastos" target="_blank" class="">View on GitHub</a>
                     </div>
                 </div>
 
                 <div class="projeto border-anime border-active">
                     <div class="mt-auto h-100 d-flex flex-column justify-content-between">
-                        <p class="type">C# + .NET API
-                            <i class="devicon-csharp-line-wordmark"></i>
+                        <p class="type">React Native App
+                            <i class="devicon-react-original-wordmark"></i>
                         </p>
-                        <h3 class="">FilmeWebApi</h3>
-                        <p class="projeto-descricao">A film registration system</p>
-                        <a target="_blank" href="https://github.com/SamuelBarbosa1/FilmeWebApi" class="">To view project</a>
+                        <h3 class="">MiniFeed</h3>
+                        <p class="projeto-descricao">A social media mobile application built with React Native and Expo. MiniFeed allows users to create accounts, post updates, like and comment on posts, and connect with others in a simple, intuitive interface.</p>
+                        <a target="_blank" href="https://github.com/SamuelBarbosa1/MiniFeed" class="">View on GitHub</a>
                     </div>
                 </div>
 
                 <div class="projeto border-anime">
                     <div class="mt-auto h-100 d-flex flex-column justify-content-between">
-                        <p class="type">In production
-                            <i class="fa-solid fa-receipt"></i>
+                        <p class="type">Shell
+                            <i class="devicon-bash-plain"></i>
                         </p>
+                        <h3 class="">Painel OSINT Completo</h3>
+                        <p class="projeto-descricao">Painel OSINT Completo – Automação de Reconhecimento e Inteligência em Segurança</p>
+                        <a href="https://github.com/SamuelBarbosa1/painel-osint-full" class="">View Project</a>
+                    </div>
+                </div>
 
-                        <h3 class="">In production</h3>
-                        <p class="projeto-descricao">News coming soon</p>
+                <div class="projeto border-anime">
+                    <div class="mt-auto h-100 d-flex flex-column justify-content-between">
+                        <p class="type">Shell
+                            <i class="devicon-bash-plain"></i>
                         </p>
-                        <a href="http://127.0.0.1:5501/ferstock.html" class="">To view project</a>
+                        <h3 class="">Script de Automação de Atualização do Sistema</h3>
+                        <p class="projeto-descricao">Este é um script shell desenvolvido para automatizar a atualização do sistema em distribuições Linux baseadas em Debian (como Kali Linux, Ubuntu, etc.). Ele realiza várias tarefas, como atualização de pacotes, remoção de pacotes desnecessários, limpeza de cache e muito mais.</p>
+                        <a href="https://github.com/SamuelBarbosa1/atualiza-o_kali-linux" class="">View Project</a>
+                    </div>
+                </div>
+
+                <div class="projeto border-anime">
+                    <div class="mt-auto h-100 d-flex flex-column justify-content-between">
+                        <p class="type">Golang
+                            <i class="devicon-go-original-wordmark"></i>
+                        </p>
+                        <h3 class="">FilmesAPI</h3>
+                        <p class="projeto-descricao">Esta é uma API REST para gerenciar filmes. A API utiliza Go para o backend principal e Node.js com Express como um intermediário para algumas das rotas. Você pode usar o Postman para testar os endpoints.</p>
+                        <a href="https://github.com/SamuelBarbosa1/filmesAPI" class="">View Project</a>
+                    </div>
+                </div>
+
+                <div class="projeto border-anime">
+                    <div class="mt-auto h-100 d-flex flex-column justify-content-between">
+                        <p class="type">React Native
+                            <i class="devicon-react-original-wordmark"></i>
+                        </p>
+                        <h3 class="">Todo List Full-stack App</h3>
+                        <p class="projeto-descricao">The project is still under development and the next updates will focus on the following tasks:</p>
+                        <a href="https://github.com/SamuelBarbosa1/todo-list" class="">View Project</a>
                     </div>
                 </div>
 
@@ -150,14 +190,14 @@
                 <i class="fa-solid fa-plus"></i>
 
             </div>
-            <li style="--i:0;"><a href="https://www.linkedin.com/in/samuel-barbosa-de-oliveira-36b6b7229/"
+            <li style="--i:0;"><a href="https://www.linkedin.com/in/samuel-oliveira-4007602b9/"
                     target="_blank">
                     <i class="devicon-linkedin-plain"></i>
                 </a></li>
             <li style="--i:1;"><a href="https://github.com/SamuelBarbosa1" target="_blank">
                     <i class="devicon-github-original"></i>
                 </a></li>
-            <li style="--i:2;"><a href="https://t.me/SamuelBarbosa01" target="_blank">
+            <li style="--i:2;"><a href="https://t.me/Samu_Barbosa1" target="_blank">
                     <i class="fa-brands fa-telegram"></i>
                 </a></li>
             <li style="--i:3;"><a href="#" target="_blank"><i class="fa-solid fa-calendar"></i>

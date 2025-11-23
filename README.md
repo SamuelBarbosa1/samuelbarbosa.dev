@@ -1,4 +1,4 @@
-# Portfólio Backend
+# Full-stack Developer Portfolio
 
-Portfólio que desenvolvi para fins de estudo, apresentação e divulgação de projetos pessoais, em sua maioria voltados para o backend.
+Portfolio showcasing my skills and projects as a full-stack developer with expertise in modern web technologies including Golang, JavaScript, TypeScript, React Native, Node.js, Python, MySQL, PostgreSQL, Docker, Linux, and Git.
 

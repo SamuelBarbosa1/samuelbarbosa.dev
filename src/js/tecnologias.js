@@ -1,11 +1,16 @@
 
 descricoes = {
-    "C#": "C# is a modern, object-oriented, general-purpose programming language developed by Microsoft. It is widely used for developing Windows applications, mobile apps, games, and enterprise applications. C# is known for its safety, performance, and integration with the Microsoft .NET platform.",
-    ".NET": ".NET is a powerful and versatile platform that allows developers to create modern, scalable applications for different platforms using programming languages like C#. It leverages advanced libraries and features provided by the platform.",
-    "Windows": "Windows is a popular and widely used operating system that provides a reliable and powerful platform for running applications and services on personal computers. It is designed to deliver an intuitive user experience and is constantly updated to meet the needs and demands of users.",
-    "GIT": "Git is a powerful version control system that offers advanced features such as efficient branching and merging, change tracking, complete history, and more. It facilitates team collaboration, work organization, and maintaining a comprehensive record of changes over time.",
-    "Javascript": "JavaScript is a versatile and powerful programming language with a large developer community and a vast array of resources available. It plays a key role in building modern and interactive web applications.",
-    "MySQL": "MySQL is a relational database management system (RDBMS) that uses the Structured Query Language (SQL) to manage and manipulate data. It was initially developed by MySQL AB and later acquired by Oracle Corporation."
+    "Golang": "Go is an open source programming language that makes it easy to build simple, reliable, and efficient software. It's known for its fast compilation, garbage collection, and concurrency support.",
+    "JavaScript": "JavaScript is a versatile programming language that runs in browsers and on servers with Node.js. It's essential for modern web development and enables interactive websites.",
+    "TypeScript": "TypeScript is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale. It adds static types to catch errors early.",
+    "React Native": "React Native is a framework for building native mobile apps using React. It allows developers to create cross-platform mobile applications with a single codebase.",
+    "Node.js": "Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. It enables server-side scripting and allows developers to build scalable network applications.",
+    "Python": "Python is a high-level, interpreted programming language known for its simplicity and readability. It's widely used in web development, data science, and automation.",
+    "MySQL": "MySQL is a popular open-source relational database management system. It's widely used for web applications and powers many popular websites.",
+    "PostgreSQL": "PostgreSQL is a powerful, open-source object-relational database system. It's known for its reliability, feature robustness, and performance.",
+    "Docker": "Docker is a platform for developing, shipping, and running applications in containers. It simplifies deployment and ensures consistency across environments.",
+    "Linux": "Linux is a family of open-source Unix-like operating systems. It's widely used in servers, cloud computing, and development environments.",
+    "Git": "Git is a distributed version control system for tracking changes in source code during software development. It facilitates collaboration among developers."
 }
 
 
