@@ -23,6 +23,8 @@ body{
     line-height: 1.5;
     margin: 0;
     padding: 0;
+    /* Adjust font size for better mobile readability */
+    font-size: clamp(0.9rem, 2.5vw, 1.2rem);
 }
 
 
@@ -146,12 +148,25 @@ nav li{
     border: 1px solid rgba(110, 12, 175, 0.3);
     transition: all 0.3s ease;
     position: relative;
+    /* Improve touch targets */
+    min-height: 44px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .cv-download-btn:hover {
     background: rgba(110, 12, 175, 0.3);
     transform: translateY(-2px);
     border: 1px solid rgb(110, 12, 175);
+}
+
+/* Add active state for touch devices */
+.cv-download-btn:active {
+    background: rgba(110, 12, 175, 0.5);
+    transform: translateY(-1px);
+    border: 1px solid rgb(140, 30, 200);
 }
 
 .cv-download-btn::after {
@@ -250,11 +265,20 @@ section .nave{
     border-radius: 8px;
     transition: all 0.3s ease;
     border: 1px solid rgba(110, 12, 175, 0.3);
+    /* Improve touch targets */
+    min-height: 44px;
+    min-width: 44px;
 }
 
 .grid-item:hover{
     background: rgba(110, 12, 175, 0.3);
     transform: translateY(-5px);
+}
+
+/* Add active state for touch devices */
+.grid-item:active {
+    background: rgba(110, 12, 175, 0.5);
+    transform: translateY(-2px);
 }
 
 #tec{
@@ -315,6 +339,147 @@ section .nave{
     padding: 2rem 0;
 }
 
+/* SOBRE MIM SECTION */
+#sobre-mim {
+    margin: 3rem auto;
+    padding: 2rem 1rem;
+    max-width: 1200px;
+}
+
+#sobre-mim h2 {
+    font-size: 2.5rem;
+    font-weight: 200;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-family: 'Source Code Pro', monospace;
+    margin-bottom: 2rem;
+}
+
+#sobre-mim span {
+    background: -webkit-linear-gradient(rgb(116, 0, 161), rgb(80, 80, 80));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    align-items: center;
+    font-size: 2.8rem;
+}
+
+.sobre-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+    margin-top: 2rem;
+    align-items: flex-start;
+}
+
+.sobre-text {
+    flex: 1;
+    min-width: 300px;
+    background: rgba(9, 0, 12, 0.6);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba(110, 12, 175, 0.3);
+}
+
+.sobre-text h3 {
+    font-size: 1.5rem;
+    color: rgb(213, 130, 255);
+    margin-bottom: 1rem;
+    font-weight: 200;
+}
+
+.sobre-text p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.experiencia-timeline {
+    flex: 1;
+    min-width: 300px;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1.5rem;
+    border-left: 2px solid rgba(110, 12, 175, 0.3);
+}
+
+.timeline-item:before {
+    content: "";
+    position: absolute;
+    left: -6px;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgb(110, 12, 175);
+}
+
+.timeline-item h4 {
+    font-size: 1.2rem;
+    color: rgb(213, 130, 255);
+    margin-bottom: 0.3rem;
+}
+
+.timeline-item .periodo {
+    font-size: 0.9rem;
+    color: rgb(180, 180, 180);
+    margin-bottom: 0.5rem;
+}
+
+.certificados {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.certificado-card {
+    background: rgba(9, 0, 12, 0.6);
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(110, 12, 175, 0.3);
+    transition: all 0.3s ease;
+}
+
+.certificado-card:hover {
+    transform: translateY(-5px);
+    border: 1px solid rgb(110, 12, 175);
+}
+
+.certificado-card h5 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.certificado-card p {
+    font-size: 0.9rem;
+    color: rgb(180, 180, 180);
+}
+
+.cv-download-inline {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background: rgba(17, 17, 17, 0.13);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 0.9rem;
+    border: 1px solid rgba(110, 12, 175, 0.3);
+    transition: all 0.3s ease;
+}
+
+.cv-download-inline:hover {
+    background: rgba(110, 12, 175, 0.3);
+    transform: translateY(-2px);
+    border: 1px solid rgb(110, 12, 175);
+}
+
 #projetos h2{
     font-size: 2.5rem;
     font-weight: 200;
@@ -355,11 +520,20 @@ section .nave{
     border-radius: 8px;
     border: 1px solid rgba(110, 12, 175, 0.3);
     transition: all 0.3s ease;
+    /* Improve touch targets */
+    min-height: 44px;
 }
 
 .projeto:hover{
     transform: translateY(-5px);
     border: 1px solid rgb(110, 12, 175);
+}
+
+/* Add active state for touch devices */
+.projeto:active {
+    transform: translateY(-2px);
+    border: 1px solid rgb(140, 30, 200);
+    background: rgba(110, 12, 175, 0.2);
 }
 
 .border-anime{
@@ -546,11 +720,11 @@ section .nave{
         margin-top: 3rem;
     }
     
-    #tec h2, #projetos h2{
+    #tec h2, #projetos h2, #sobre-mim h2{
         font-size: 2rem;
     }
     
-    #tec span, #projetos span{
+    #tec span, #projetos span, #sobre-mim span{
         font-size: 2.3rem;
     }
     
@@ -565,6 +739,49 @@ section .nave{
     
     .menu li{
         transform-origin: 80px;
+    }
+    
+    /* Increase menu toggle size for better touch */
+    .menu .toggle {
+        width: 60px;
+        height: 60px;
+        font-size: 2.2em;
+    }
+    
+    .menu li a {
+        width: 35px;
+        height: 35px;
+        font-size: 1.5em;
+    }
+    
+    /* Adjust font sizes for better mobile readability */
+    body {
+        font-size: 1.1rem;
+    }
+    
+    .bio p {
+        font-size: 1.1rem;
+    }
+    
+    #descricao {
+        font-size: 1rem;
+    }
+    
+    .projeto-descricao {
+        font-size: 0.95rem;
+    }
+    
+    .type {
+        font-size: 0.9rem;
+    }
+    
+    /* Sobre Mim responsive adjustments */
+    .sobre-content {
+        flex-direction: column;
+    }
+    
+    .sobre-text, .experiencia-timeline {
+        min-width: 100%;
     }
 }
 
@@ -626,6 +843,75 @@ section .nave{
         font-size: 1.1em;
     }
     
+    /* Header adjustments for small screens */
+    header {
+        padding: 0.5rem 0;
+    }
+    
+    .logo h1 {
+        font-size: 1.5rem;
+    }
+    
+    .logo span {
+        font-size: 1.8rem;
+    }
+    
+    .cv-download-btn {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+    
+    /* Bio section adjustments */
+    #biosec {
+        padding: 1rem 0.5rem;
+        height: auto;
+        min-height: 50vh;
+    }
+    
+    .bio h2 {
+        font-size: 1.5rem;
+    }
+    
+    .bio p {
+        font-size: 1rem;
+    }
+    
+    /* Technology section adjustments */
+    #tec {
+        padding: 1rem 0.5rem;
+    }
+    
+    .info-container {
+        padding: 1rem;
+        margin: 1rem auto;
+    }
+    
+    #descricao {
+        font-size: 0.9rem;
+    }
+    
+    /* Projects section adjustments */
+    #projetos {
+        margin: 2rem auto;
+        padding: 1rem 0.5rem;
+    }
+    
+    .projeto {
+        padding: 1rem;
+    }
+    
+    .projeto h3 {
+        font-size: 1.1rem;
+    }
+    
+    .projeto-descricao {
+        font-size: 0.8rem;
+    }
+    
+    .type {
+        font-size: 0.8rem;
+    }
+    
     @media screen and (max-width: 350px){
         .menu{
             bottom: 10px;
@@ -634,6 +920,98 @@ section .nave{
         
         .menu li{
             transform-origin: 60px;
+        }
+        
+        .grid-item {
+            width: 70px;
+            height: 70px;
+            font-size: 1.8rem;
+        }
+        
+        .logo h1 {
+            font-size: 1.3rem;
+        }
+        
+        /* Further adjust font sizes for small screens */
+        body {
+            font-size: 1rem;
+        }
+        
+        .bio p {
+            font-size: 1rem;
+        }
+        
+        #descricao {
+            font-size: 0.9rem;
+        }
+        
+        .projeto-descricao {
+            font-size: 0.85rem;
+        }
+        
+        .type {
+            font-size: 0.8rem;
+        }
+        
+        /* Sobre Mim adjustments for small screens */
+        #sobre-mim h2 {
+            font-size: 1.8rem;
+        }
+        
+        #sobre-mim span {
+            font-size: 2rem;
+        }
+        
+        .sobre-text, .experiencia-timeline {
+            padding: 1rem;
+        }
+        
+        .timeline-item {
+            padding-left: 1.5rem;
+        }
+        
+        .certificados {
+            grid-template-columns: 1fr;
+        }
+    }
+    
+    /* Extra small devices (portrait phones, less than 320px) */
+    @media screen and (max-width: 320px) {
+        .grid-container {
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 0.5rem;
+        }
+        
+        .grid-item {
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+            padding: 0.5rem;
+        }
+        
+        .projeto-grid {
+            grid-gap: 0.8rem;
+        }
+        
+        .projeto {
+            padding: 0.8rem;
+        }
+        
+        .logo h1 {
+            font-size: 1.2rem;
+        }
+        
+        .logo span {
+            font-size: 1.5rem;
+        }
+        
+        #descricao {
+            font-size: 0.8rem;
+        }
+        
+        .cv-download-btn {
+            font-size: 0.7rem;
+            padding: 5px 10px;
         }
     }
 }
