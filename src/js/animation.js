@@ -74,3 +74,45 @@ if (sobreMimSection) {
         });
     }
 }
+
+// Header hide/show on scroll functionality
+let lastScrollTop = 0;
+const header = document.querySelector('.fixed-top-header');
+const backToTopButton = document.getElementById('backToTop');
+
+window.addEventListener('scroll', function() {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    // Hide/show header based on scroll direction
+    if (scrollTop > lastScrollTop && scrollTop > 100) {
+        // Scrolling down - hide header
+        header.classList.add('hide');
+    } else {
+        // Scrolling up - show header
+        header.classList.remove('hide');
+    }
+    
+    // Show/hide back to top button
+    if (scrollTop > 300) {
+        backToTopButton.classList.add('show');
+    } else {
+        backToTopButton.classList.remove('show');
+    }
+    
+    lastScrollTop = scrollTop;
+});
+
+// Back to top button functionality
+backToTopButton.addEventListener('click', function() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// Show header when mouse is near the top of the screen
+document.addEventListener('mousemove', function(e) {
+    if (e.clientY < 100) {
+        header.classList.remove('hide');
+    }
+});
