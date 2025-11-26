@@ -63,16 +63,6 @@ if (sobreMimSection) {
             duration: 800
         });
     }
-    
-    const certificados = document.querySelectorAll('.certificado-card');
-    for (let i = 0; i < certificados.length; i++) {
-        sr.reveal(certificados[i], {
-            delay: 150 * (i + 1),
-            origin: 'bottom',
-            distance: '20px',
-            duration: 800
-        });
-    }
 }
 
 // Header hide/show on scroll functionality

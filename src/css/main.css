@@ -613,30 +613,89 @@ h2[data-i18n] {
     margin-top: 1rem;
 }
 
-.certificado-card {
-    background: rgba(9, 0, 12, 0.6);
-    padding: 1rem;
-    border-radius: 8px;
-    border: 1px solid rgba(110, 12, 175, 0.3);
-    transition: all 0.3s ease;
-    color: #ffffff; /* White text for better visibility */
+/* --- TÍTULO DAS CERTIFICAÇÕES --- */
+.titulo-certificacoes {
+    width: 100%;
+    text-align: center;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: bold;
+    /* Aqui resolve a cor escura */
+    color: rgb(213, 130, 255); 
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-.certificado-card:hover {
-    transform: translateY(-5px);
-    border: 1px solid rgb(110, 12, 175);
+/* Container Pai - SEM GAP AQUI */
+.certificados-marquee {
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    
+    /* Degradê para suavizar as pontas */
+    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
+
+/* A Lista (Trilho) */
+.certificados-track {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    
+    /* ESPAÇAMENTO ENTRE ITENS */
+    gap: 3rem; 
+    
+    /* TRUQUE: Adiciona espaço no final da lista para colar na próxima sem grudar */
+    padding-right: 3rem; 
+    
+    min-width: 100%;
+    
+    /* Animação Contínua */
+    animation: scroll 30s linear infinite;
+}
+
+/* Animação simplificada */
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        /* Agora sim: move exatamente 100% da largura da lista */
+        transform: translateX(-100%);
+    }
+}
+
+/* Cards (Sem alterações) */
+.certificado-card {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-width: 200px;
 }
 
 .certificado-card h5 {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-    font-family: "Source Sans Pro", "Arial", sans-serif;
-    color: #ffffff; /* White text for better visibility */
+    font-size: 1.2rem;
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 5px;
 }
 
 .certificado-card p {
     font-size: 0.9rem;
-    color: #ffffff; /* White text for better visibility */
+    color: rgb(213, 130, 255);
 }
 
 .cv-download-inline {
@@ -1016,6 +1075,17 @@ h2[data-i18n] {
         padding-left: 10px;
         padding-right: 10px;
     }
+    
+    /* Certificados Marquee responsive adjustments */
+ .certificados-marquee {
+        height: auto;       
+        padding: 15px 0;    
+    }
+            
+    .certificado-card {
+        min-width: 180px;
+        padding: 0.5rem;
+    }
 }
 
     @media screen and (max-width: 452px){
@@ -1023,11 +1093,20 @@ h2[data-i18n] {
             margin: 0 auto;
         }
         .bio #nome{
-            font-size: 2.5rem;
+            font-size: 2.2rem;
         }
     
         .bio #nome, .bio span{
             text-align: center;
+            /* CORREÇÃO PARA EVITAR SOBREPOSIÇÃO: Força a quebra de linha */
+            display: block; 
+            line-height: 1.1; 
+        }
+
+        /* CORREÇÃO: Adiciona espaçamento vertical para o título h2 */
+        .bio h2 { 
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem; 
         }
     
         #tec h2, #projetos h2, #sobre-mim h2{
@@ -1120,9 +1199,7 @@ h2[data-i18n] {
             min-height: 50vh;
         }
         
-        .bio h2 {
-            font-size: 1.5rem;
-        }
+        /* .bio h2 já foi corrigido acima */
         
         .bio p {
             font-size: 1rem;
@@ -1171,6 +1248,21 @@ h2[data-i18n] {
             word-break: break-word;
         }
         
+        /* Certificados Marquee responsive adjustments */
+        .certificados-marquee {
+            height: auto;
+            padding: 15px 0;
+        }
+        
+        .certificado-card {
+            min-width: 180px;
+            padding: 0.5rem;
+        }
+        
+        .certificado-wrapper {
+            margin: 0 !important;
+        }
+        
         @media screen and (max-width: 350px){
             .menu{
                 bottom: 10px;
@@ -1197,7 +1289,11 @@ h2[data-i18n] {
             }
             
             .logo h1 {
-                font-size: 1.3rem;
+                font-size: 1.2rem; /* CORREÇÃO de 1.3rem */
+            }
+
+            .logo span {
+                font-size: 1.6rem; /* CORREÇÃO de 1.8rem */
             }
             
             /* Further adjust font sizes for small screens */
@@ -1207,6 +1303,10 @@ h2[data-i18n] {
             
             .bio p {
                 font-size: 1rem;
+            }
+
+            .bio #nome{ /* CORREÇÃO: Redução extra do nome */
+                font-size: 2rem; 
             }
             
             #descricao {
@@ -1223,12 +1323,12 @@ h2[data-i18n] {
             
             /* Sobre Mim adjustments for small screens */
             #sobre-mim h2 {
-                font-size: 1.6rem;
+                font-size: 1.5rem; /* CORREÇÃO de 1.6rem */
                 line-height: 1.3;
             }
             
             #sobre-mim span {
-                font-size: 1.8rem;
+                font-size: 1.7rem; /* CORREÇÃO de 1.8rem */
             }
             
             .sobre-text, .experiencia-timeline {
@@ -1279,6 +1379,30 @@ h2[data-i18n] {
                 right: 50%;
                 transform: translateX(50%);
             }
+            
+            /* Certificados Marquee responsive adjustments */
+            .certificados-marquee {
+            height: auto;
+            padding: 15px 0;
+            }
+            
+            .certificado-card {
+                min-width: 180px;
+                padding: 0.5rem;
+                
+            }
+            
+            .certificado-wrapper {
+                margin: 0 0.6rem;
+            }
+            
+            .certificado-card h5 {
+                font-size: 0.9rem;
+            }
+            
+            .certificado-card p {
+                font-size: 0.8rem;
+            }
         }
     }
     /* Extra small devices (portrait phones, less than 320px) */
@@ -1304,11 +1428,15 @@ h2[data-i18n] {
         }
         
         .logo h1 {
-            font-size: 1.2rem;
+            font-size: 1rem; /* CORREÇÃO de 1.2rem */
         }
         
         .logo span {
-            font-size: 1.5rem;
+            font-size: 1.3rem; /* CORREÇÃO de 1.5rem */
+        }
+
+        .bio #nome{ /* CORREÇÃO: Redução final do nome */
+            font-size: 1.8rem; 
         }
         
         #descricao {
@@ -1322,16 +1450,40 @@ h2[data-i18n] {
         
         /* Section titles for extra small screens */
         #tec h2, #projetos h2, #sobre-mim h2 {
-            font-size: 1.5rem;
+            font-size: 1.4rem; /* CORREÇÃO de 1.5rem */
             line-height: 1.3;
         }
         
         #tec span, #projetos span, #sobre-mim span {
-            font-size: 1.7rem;
+            font-size: 1.6rem; /* CORREÇÃO de 1.7rem */
         }
         
         .section-title {
             font-size: 1.4rem;
             max-width: 70%;
+        }
+        
+        /* Certificados Marquee responsive adjustments */
+        .certificados-marquee {
+            height: auto;
+            padding: 15px 0;
+        }
+        
+        .certificado-card {
+            min-width: 180px;
+            padding: 0.5rem;
+            
+        }
+        
+        .certificado-wrapper {
+            margin: 0 0.4rem;
+        }
+        
+        .certificado-card h5 {
+            font-size: 0.8rem;
+        }
+        
+        .certificado-card p {
+            font-size: 0.7rem;
         }
      }
