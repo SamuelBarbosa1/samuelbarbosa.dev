@@ -349,6 +349,50 @@ main {
     font-family: "Source Sans Pro", "Arial", sans-serif;
 }
 
+
+/* Social Icons in Bio Section */
+.social-icons-bio {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .social-icons-bio {
+        justify-content: center;
+    }
+}
+
+.social-icon-bio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(110, 12, 175, 0.2);
+    border: 1px solid rgba(110, 12, 175, 0.3);
+    border-radius: 50%;
+    color: #fff;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.social-icon-bio:hover {
+    background: rgba(110, 12, 175, 0.5);
+    border-color: rgb(110, 12, 175);
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 5px 15px rgba(110, 12, 175, 0.4);
+    color: #fff;
+}
+
+.social-icon-bio:active {
+    transform: translateY(-1px) scale(1.05);
+}
+
 .bio span {
     background: -webkit-linear-gradient(rgb(116, 0, 161), rgb(61, 61, 61));
     -webkit-background-clip: text;
@@ -656,33 +700,39 @@ h2[data-i18n] {
 }
 
 .certificados {
-/* CORRIGIDO: Remover display: grid, que estava quebrando o fluxo */
-    display: flex; /* Adicionado display: flex para permitir o fluxo horizontal do track */
-    flex-wrap: nowrap; /* Garante que os itens não quebrem a linha */
+    /* CORRIGIDO: Remover display: grid, que estava quebrando o fluxo */
+    display: flex;
+    /* Adicionado display: flex para permitir o fluxo horizontal do track */
+    flex-wrap: nowrap;
+    /* Garante que os itens não quebrem a linha */
     align-items: center;
-    gap: 1rem; /* Adiciona espaçamento entre os cartões */
+    gap: 1rem;
+    /* Adiciona espaçamento entre os cartões */
     margin-top: 1rem;
-    padding: 0 10px; /* Adicionado padding para respirar */
-    max-width: 1200px; /* Limita a largura do contêiner */
-    margin: 0 auto; /* Centraliza o contêiner na página */
+    padding: 0 10px;
+    /* Adicionado padding para respirar */
+    max-width: 1200px;
+    /* Limita a largura do contêiner */
+    margin: 0 auto;
+    /* Centraliza o contêiner na página */
 }
 
 /* A Lista (Trilho) */
 
 .certificados-track {
-flex-shrink: 0;
+    flex-shrink: 0;
     display: flex;
     align-items: center;
-    
+
     /* ESPAÇAMENTO ENTRE ITENS */
-    gap: 3rem; 
-    
+    gap: 3rem;
+
     /* TRUQUE: Adiciona espaço no final da lista para colar na próxima sem grudar */
-    padding-right: 3rem; 
-    
+    padding-right: 3rem;
+
     /* CORRIGIDO: min-width: 100% DE VOLTA. ESSENCIAL para que o translateX(-100%) funcione. */
-    min-width: 100%; 
-    
+    min-width: 100%;
+
     /* Animação Contínua */
     animation: scroll 30s linear infinite;
 
@@ -696,15 +746,18 @@ flex-shrink: 0;
 
     to {
         /* Move 100% da largura do próprio elemento */
-        transform: translateX(-100%); 
+        transform: translateX(-100%);
     }
 }
+
 /* Cards (Sem alterações) */
 
 .certificados-marquee {
     display: flex;
-    flex-wrap: nowrap; /* Garantir que não quebre a linha */
-    overflow: hidden; /* CRUCIAL: Esconde o conteúdo que está fora de vista */
+    flex-wrap: nowrap;
+    /* Garantir que não quebre a linha */
+    overflow: hidden;
+    /* CRUCIAL: Esconde o conteúdo que está fora de vista */
     user-select: none;
     width: 100vw;
     position: relative;
@@ -712,7 +765,7 @@ flex-shrink: 0;
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
-    
+
     /* Degradê para suavizar as pontas - Removido/Corrigido para o que você pediu */
     mask-image: none;
     -webkit-mask-image: none;
@@ -730,7 +783,7 @@ flex-shrink: 0;
     min-width: 200px;
 
     /* CORREÇÃO PARA O TEXTO SUMIR NA ANIMAÇÃO */
-    transform: translateZ(0); 
+    transform: translateZ(0);
     -webkit-font-smoothing: antialiased;
 }
 
