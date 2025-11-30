@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- TITLE ICON -->
+  <link rel="shortcut icon" href="src/web/favicon.ico" type="image/x-icon" />
+  <title>Samuel Barbosa | Cursos e Certificações</title>
+  <!-- SEO -->
+  <meta name="author" content="Samuel Barbosa de Oliveira" />
+  <meta name="keywords" content="cursos, certificações, portfolio, portfólio, back-end, backend,
+            Golang, JavaScript, TypeScript, React Native, Node.js, Python, MySQL, PostgreSQL, Docker, Linux, Git" />
+  <meta name="description"
+    content="Lista completa de cursos e certificações concluídas por Samuel Barbosa, desenvolvedor full-stack especializado em tecnologias modernas." />
+  <!-- BASE CSS -->
+  <link rel="stylesheet" href="src/css/reset.css" />
+  <link rel="stylesheet" href="src/css/main.css" />
+  <style>
+    /* Lighter background for better readability */
+    body {
+      background: rgb(45, 25, 65);
+      background: radial-gradient(circle, rgba(45, 25, 65, 1) 0%, rgba(33, 15, 51, 1) 100%);
+      color: #ffffff;
+    }
+    
+    .curso-category {
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      background: rgba(35, 15, 50, 0.8);
+      border-radius: 8px;
+      border: 1px solid rgba(144, 19, 254, 0.5);
+      color: #ffffff;
+    }
+    
+    .curso-category h4 {
+      color: rgb(230, 180, 255);
+      margin-bottom: 0.8rem;
+      font-weight: 300;
+      font-size: 1.3rem;
+    }
+    
+    .curso-category ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    
+    .curso-category li {
+      margin-bottom: 0.5rem;
+      padding-left: 1.5rem;
+      position: relative;
+      line-height: 1.5;
+    }
+    
+    .curso-category li:before {
+      content: "▶";
+      color: rgba(144, 19, 254, 0.9);
+      position: absolute;
+      left: 0;
+    }
+    
+    .info-container h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      color: #ffffff;
+    }
+    
+    /* Make section title more visible */
+    #cursos h2 {
+      color: #ffffff;
+      text-shadow: 0 0 15px rgba(144, 19, 254, 0.8);
+      font-weight: 200;
+    }
+    
+    #cursos h2 .section-title {
+      color: #ffffff;
+      font-weight: 200;
+    }
+    
+    #cursos h2 span {
+      background: -webkit-linear-gradient(rgb(144, 19, 254), rgb(116, 0, 161));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: bold;
+    }
+    
+    .info-container {
+      background: rgba(35, 15, 50, 0.8);
+      border: 1px solid rgba(144, 19, 254, 0.5);
+      color: #ffffff;
+    }
+    
+    /* Improve link visibility */
+    .cv-download-inline {
+      background: rgba(144, 19, 254, 0.3);
+      border: 1px solid rgba(144, 19, 254, 0.7);
+      color: #ffffff;
+    }
+    
+    /* Improve main heading visibility */
+    .logo h1 {
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+    }
+    
+    .logo span {
+      text-shadow: 0 0 8px rgba(144, 19, 254, 0.9);
+    }
+    
+    .cv-download-inline:hover {
+      background: rgba(144, 19, 254, 0.6);
+      border: 1px solid rgba(144, 19, 254, 1);
+    }
+    
+    @media (max-width: 768px) {
+      .curso-category {
+        padding: 0.8rem;
+      }
+      
+      .curso-category h4 {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet" />
+  <!-- BOOTSTRAP -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
+  <!-- ICONS -->
+  <script src="https://cdn.lordicon.com/qjzruarw.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
+  <script src="https://kit.fontawesome.com/407a013642.js" crossorigin="anonymous"></script>
+  <!-- SCROLL REVEAL - JS -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+</head>
+
+<body>
+  <header class="d-flex justify-content-between align-items-center pt-2 fixed-top-header">
+    <div></div>
+    <div class="logo">
+      <h1><span>{</span>Samuel <span> /</span> Portfolio<span>}</span></h1>
+    </div>
+    <div class="header-buttons-container d-flex align-items-center">
+      <!-- Language Selector -->
+      <div class="language-selector">
+        <button class="language-btn" id="languageToggle">
+          <i class="fas fa-globe"></i>
+          <span class="language-text">PT</span>
+        </button>
+        <div class="language-dropdown" id="languageDropdown">
+          <a href="#" class="language-option" data-lang="pt">Português</a>
+          <a href="#" class="language-option" data-lang="en">English</a>
+          <a href="#" class="language-option" data-lang="es">Español</a>
+        </div>
+      </div>
+      <div class="cv-button-container ms-3">
+        <a href="Currículo_Samuel_Barbosa_TI.pdf" download class="cv-download-btn underline-anime"
+          data-i18n="download_cv">Download CV</a>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section id="cursos" class="mx-auto reveal py-5">
+      <h2 class="py-3 text-center"><span>{</span><span class="section-title">Cursos & Certificações</span><span>}</span></h2>
+      
+      <div class="container mt-5">
+        <!-- ALURA Section -->
+        <div class="row mb-5">
+          <div class="col-12">
+            <div class="info-container mx-auto mb-4">
+              <h3 class="underline-anime text-center">ALURA</h3>
+              <div class="text-center my-3">
+                <a href="https://cursos.alura.com.br/user/SamuelB/fullCertificate/18a724249d60f0d00212813188b28cb9" 
+                   target="_blank" class="cv-download-inline">
+                  <i class="fas fa-external-link-alt me-2"></i>Ver Certificado Completo
+                </a>
+              </div>
+              <div class="curso-category">
+                <h4>Mobile - 10h</h4>
+                <ul>
+                  <li>React Native: criando um app (de 06/06/2023 a 12/08/2023) 10h</li>
+                </ul>
+              </div>
+              
+              <div class="curso-category">
+                <h4>Programação - 56h</h4>
+                <ul>
+                  <li>Lógica de programação: comece em lógica com o jogo Pong e JavaScript (de 02/03/2023 a 23/03/2023) 6h</li>
+                  <li>Lógica de programação: laços e listas com JavaScript (de 25/03/2023 a 29/04/2023) 4h</li>
+                  <li>Arquitetura de computadores: por trás de como seu programa funciona (de 30/03/2023 a 03/05/2023) 8h</li>
+                  <li>C#: explorando a linguagem (de 07/04/2023 a 24/05/2023) 12h</li>
+                  <li>.NET 6: criando uma web API (de 30/09/2023 a 05/11/2023) 10h</li>
+                  <li>.NET 6: relacionando entidades (de 06/11/2023 a 16/11/2023) 8h</li>
+                  <li>C#: criando sua primeira aplicação (de 23/05/2023 a 03/06/2023) 8h</li>
+                </ul>
+              </div>
+              
+              <div class="curso-category">
+                <h4>Front-end - 16h</h4>
+                <ul>
+                  <li>HTML e CSS: ambientes de desenvolvimento, estrutura de arquivos e tags (de 03/05/2023 a 03/05/2023) 8h</li>
+                  <li>HTML e CSS: Classes, posicionamento e Flexbox (de 03/05/2023 a 08/05/2023) 8h</li>
+                </ul>
+              </div>
+              
+              <div class="curso-category">
+                <h4>DevOps - 10h</h4>
+                <ul>
+                  <li>Cloud Onboarding: trabalhando com os principais provedores (de 10/12/2023 a 13/12/2023) 10h</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- FIAP Section -->
+        <div class="row mb-5">
+          <div class="col-12">
+            <div class="info-container mx-auto mb-4">
+              <h3 class="underline-anime text-center">FIAP</h3>
+              <div class="text-center my-3">
+                <a href="https://on.fiap.com.br/certificados/" target="_blank" class="cv-download-inline">
+                  <i class="fas fa-external-link-alt me-2"></i>Ver Certificados
+                </a>
+              </div>
+              <div class="curso-category">
+                <ul>
+                  <li>Cybersecurity</li>
+                  <li>Linux Fundamentos</li>
+                  <li>Gestão de Infraestrutura de TI</li>
+                  <li>DevOps & Agile Culture</li>
+                  <li>Cloud Fundamentals, Administration and Solution Architect</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- SENAI Section -->
+        <div class="row mb-5">
+          <div class="col-12">
+            <div class="info-container mx-auto mb-4">
+              <h3 class="underline-anime text-center">SENAI</h3>
+              <div class="curso-category">
+                <ul>
+                  <li>Desenvolvedor C#</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- SkillFront Section -->
+        <div class="row mb-5">
+          <div class="col-12">
+            <div class="info-container mx-auto mb-4">
+              <h3 class="underline-anime text-center">SkillFront - Certificações</h3>
+              <div class="text-center my-3">
+                <a href="https://www.skillfront.com/Badges/68895808213240" target="_blank" class="cv-download-inline">
+                  <i class="fas fa-external-link-alt me-2"></i>Ver Credenciais
+                </a>
+              </div>
+              <div class="curso-category">
+                <ul>
+                  <li>ISO 9001 – Quality Management Systems Associate (SkillFront • 2025)<br>
+                    <strong>Credencial:</strong> 64759502430603
+                  </li>
+                  <li>ISO/IEC 27001:2022 – Information Security Associate (SkillFront • 2025)<br>
+                    <strong>Credencial:</strong> 68895808213240
+                  </li>
+                  <li>ISO/IEC 20000 – IT Service Management Associate (SkillFront • 2025)<br>
+                    <strong>Credencial:</strong> 39605724577334
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <section>
+    <ul class="menu">
+      <div onclick="toggler()" class="toggle">
+        <i class="fa-solid fa-plus"></i>
+      </div>
+      <li style="--i: 0">
+        <a href="https://www.linkedin.com/in/samuel-oliveira-4007602b9/" target="_blank">
+          <i class="devicon-linkedin-plain"></i>
+        </a>
+      </li>
+      <li style="--i: 1">
+        <a href="https://github.com/SamuelBarbosa1" target="_blank">
+          <i class="devicon-github-original"></i>
+        </a>
+      </li>
+      <li style="--i: 2">
+        <a href="https://t.me/Samu_Barbosa1" target="_blank">
+          <i class="fa-brands fa-telegram"></i>
+        </a>
+      </li>
+      <li style="--i: 3">
+        <a href="#" target="_blank"><i class="fa-solid fa-calendar"></i> </a>
+      </li>
+      <li style="--i: 4">
+        <a href="/cursos.html" target="_blank"><i class="fa-solid fa-scroll"></i>
+        </a>
+      </li>
+    </ul>
+  </section>
+  <script src="src/js/animation.js"></script>
+  <script src="src/js/menu-btn.js"></script>
+  <script src="src/js/language-selector.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+    integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
