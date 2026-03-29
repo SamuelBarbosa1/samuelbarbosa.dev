@@ -5,537 +5,607 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Ferstock-->
-  <link rel="stylesheet" href="/ferstock.html" />
-  <!-- TITLE ICON -->
   <link rel="shortcut icon" href="src/web/favicon.ico" type="image/x-icon" />
   <title>Samuel Barbosa | Full-stack Developer Portfolio</title>
-  <!-- SEO -->
   <meta name="author" content="Samuel Barbosa de Oliveira" />
-  <meta name="keywords" content="portfolio, portfólio, back-end, backend,
-            Golang, JavaScript, TypeScript, React Native, Node.js, Python, MySQL, PostgreSQL, Docker, Linux, Git" />
+  <meta name="keywords"
+    content="portfólio, full-stack, developer, golang, typescript, react native, node.js, service desk" />
   <meta name="description"
-    content="Full-stack developer specializing in Golang, JavaScript, TypeScript, React Native, Node.js, Python, MySQL, PostgreSQL, Docker, Linux, and Git. Explore my projects and technical skills." />
-  <!-- BASE CSS -->
-  <link rel="stylesheet" href="src/css/reset.css" />
-  <link rel="stylesheet" href="src/css/main.css" />
-  <!-- GOOGLE FONTS -->
+    content="Full-stack developer especializado em Golang, TypeScript, Node.js, React Native e infraestrutura Linux. Baseado em Brasília, DF." />
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet" />
-  <!-- BOOTSTRAP -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
-  <!-- ICONS -->
-  <script src="https://cdn.lordicon.com/qjzruarw.js"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@300;400;500&display=swap"
+    rel="stylesheet" />
+  <!-- Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
   <script src="https://kit.fontawesome.com/407a013642.js" crossorigin="anonymous"></script>
-  <!-- SCROLL REVEAL - JS -->
-  <script src="https://unpkg.com/scrollreveal"></script>
+  <!-- CSS -->
+  <link rel="stylesheet" href="src/css/reset.css" />
+  <link rel="stylesheet" href="src/css/main.css" />
 </head>
 
 <body>
-  <header class="d-flex justify-content-between align-items-center pt-2 fixed-top-header">
-    <div></div>
-    <div class="logo">
-      <h1><span>{</span>Samuel <span> /</span> Portfolio<span>}</span></h1>
-    </div>
-    <div class="header-buttons-container d-flex align-items-center">
-      <!-- Language Selector -->
-      <div class="language-selector">
-        <button class="language-btn" id="languageToggle">
-          <i class="fas fa-globe"></i>
-          <span class="language-text">PT</span>
+  <!-- ===== HEADER ===== -->
+  <header id="header">
+    <div class="header-inner">
+      <a href="#hero" class="logo-link">S<span class="accent">.</span>B</a>
+      <nav class="main-nav" id="mainNav">
+        <a href="#sobre" class="nav-link" data-i18n="nav_sobre">Sobre</a>
+        <a href="#habilidades" class="nav-link" data-i18n="nav_habilidades">Habilidades</a>
+        <a href="#projetos" class="nav-link" data-i18n="nav_projetos">Projetos</a>
+        <a href="#experiencia" class="nav-link" data-i18n="nav_experiencia">Experiência</a>
+      </nav>
+      <div class="header-actions">
+        <div class="language-selector">
+          <button class="language-btn" id="languageToggle" aria-label="Idioma">
+            <i class="fas fa-globe"></i>
+            <span class="language-text">PT</span>
+          </button>
+          <div class="language-dropdown" id="languageDropdown">
+            <a href="#" class="language-option" data-lang="pt">Português</a>
+            <a href="#" class="language-option" data-lang="en">English</a>
+            <a href="#" class="language-option" data-lang="es">Español</a>
+          </div>
+        </div>
+        <a href="#contato" class="btn-contato" data-i18n="nav_contato">Contato</a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
         </button>
-        <div class="language-dropdown" id="languageDropdown">
-          <a href="#" class="language-option" data-lang="pt">Português</a>
-          <a href="#" class="language-option" data-lang="en">English</a>
-          <a href="#" class="language-option" data-lang="es">Español</a>
-        </div>
-      </div>
-      <div class="cv-button-container ms-3">
-        <a href="Currículo_Samuel_Barbosa_TI.pdf" download class="cv-download-btn underline-anime"
-          data-i18n="download_cv">Download CV</a>
       </div>
     </div>
+    <!-- Mobile nav -->
+    <nav class="mobile-nav" id="mobileNav">
+      <a href="#sobre" class="nav-link-mobile" data-i18n="nav_sobre">Sobre</a>
+      <a href="#habilidades" class="nav-link-mobile" data-i18n="nav_habilidades">Habilidades</a>
+      <a href="#projetos" class="nav-link-mobile" data-i18n="nav_projetos">Projetos</a>
+      <a href="#experiencia" class="nav-link-mobile" data-i18n="nav_experiencia">Experiência</a>
+      <a href="#contato" class="nav-link-mobile" data-i18n="nav_contato">Contato</a>
+    </nav>
   </header>
+
   <main>
-    <section id="biosec"
-         class="d-flex p-5 align-items-center justify-md-content-around justify-content-center flex-row w-full">
-      <div class="bio d-inline-block text-center text-md-start text-white">
-        <h2 class="text-center text-md-start" data-i18n="hello">Olá, Me chamo</h2>
-        <h3 class="" id="nome"><span>{</span>Samuel<span>}</span></h3>
-        <p data-i18n="specializing">
-          Full-stack Developer<br />Especializado em tecnologias web modernas
-        </p>
-        <!-- ICONES DAS REDES -->
-        <div class="social-icons-bio">
-          <a href="https://wa.me/5561999544335" target="_blank" class="social-icon-bio" title="WhatsApp">
-            <i class="fab fa-whatsapp"></i>
-          </a>
-          <a href="https://www.linkedin.com/in/samuel-oliveira-4007602b9/" target="_blank" class="social-icon-bio"
-            title="LinkedIn">
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a href="mailto:samuelbarbosa2001oliveira@gmail.com" class="social-icon-bio" title="Gmail">
-            <i class="fas fa-envelope"></i>
-          </a>
-          <a href="https://github.com/SamuelBarbosa1" target="_blank" class="social-icon-bio" title="GitHub">
-            <i class="fab fa-github"></i>
-          </a>
+    <!-- ===== HERO ===== -->
+    <section id="hero">
+      <div class="hero-inner">
+        <div class="hero-left">
+          <div class="badge-available">
+            <span class="badge-dot"></span>
+            <span data-i18n="available">Disponível para oportunidades</span>
+          </div>
+          <h1 class="hero-h1">
+            <span data-i18n="hero_greeting">Olá, eu sou</span><br>
+            <span class="hero-name" data-i18n="hero_name">Samuel Barbosa</span>
+          </h1>
+          <p class="hero-sub" data-i18n="hero_sub">
+            Full-stack Developer &amp; Especialista em Suporte TI. Focado em soluções modernas, performance e qualidade.
+          </p>
+          <div class="hero-actions">
+            <a href="#projetos" class="btn-primary" data-i18n="hero_projects">Ver Projetos</a>
+            <a href="https://www.linkedin.com/in/samuel-oliveira-4007602b9/" target="_blank" class="btn-outline">
+              <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="Currículo_Samuel_Barbosa_TI.pdf" download class="btn-outline" data-i18n="download_cv">
+              <i class="fas fa-download"></i> Download CV
+            </a>
+          </div>
+          <div class="hero-contacts">
+            <a href="https://github.com/SamuelBarbosa1" target="_blank" class="contact-icon" title="GitHub"><i
+                class="fab fa-github"></i></a>
+            <a href="https://wa.me/5561999544335" target="_blank" class="contact-icon" title="WhatsApp"><i
+                class="fab fa-whatsapp"></i></a>
+            <a href="mailto:samuelbarbosa2001oliveira@gmail.com" class="contact-icon" title="Email"><i
+                class="fas fa-envelope"></i></a>
+            <a href="https://t.me/Samu_Barbosa1" target="_blank" class="contact-icon" title="Telegram"><i
+                class="fab fa-telegram"></i></a>
+            <span class="divider-v">|</span>
+            <span class="hero-location"><i class="fas fa-location-dot"></i> Brasília, DF</span>
+          </div>
+        </div>
+        <div class="hero-right">
+          <div class="code-card">
+            <div class="code-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <pre class="code-pre"><code><span class="tok-kw">const</span> <span class="tok-var">developer</span> <span class="tok-op">=</span> {
+  <span class="tok-key">name</span><span class="tok-op">:</span>   <span class="tok-str">'Samuel Barbosa'</span>,
+  <span class="tok-key">role</span><span class="tok-op">:</span>   <span class="tok-str">'Full-stack Dev'</span>,
+  <span class="tok-key">stack</span><span class="tok-op">:</span>  [
+    <span class="tok-str">'Go'</span>, <span class="tok-str">'TypeScript'</span>,
+    <span class="tok-str">'Node.js'</span>, <span class="tok-str">'React'</span>,
+  ],
+  <span class="tok-key">infra</span><span class="tok-op">:</span>  [<span class="tok-str">'Linux'</span>, <span class="tok-str">'Docker'</span>],
+  <span class="tok-key">status</span><span class="tok-op">:</span> <span class="tok-str">'Ready to build 🚀'</span>,
+};</code></pre>
+            <div class="code-footer-line">
+              <span class="tok-comment">// Focado em qualidade e performance</span>
+            </div>
+          </div>
+          <div class="hero-accent-icon"><i class="fas fa-code"></i></div>
         </div>
       </div>
-      <img src="src/web/nave.png" alt="Ilustração
-                    de um homem sentado em um computador" class="d-none d-md-inline-block nave" />
+      <div class="scroll-down"><i class="fas fa-chevron-down"></i></div>
     </section>
-    <section id="tec" class="mx-auto">
-      <h2 class="py-3" data-i18n="technologies"><span>{</span><span
-          class="section-title">Tecnologias</span><span>}</span></h2>
-      <script src="src/js/tecnologias.js"></script>
-      <div class="d-flex mx-sm-5 justify-content-around flex-md-row flex-column">
-        <div class="info-container mx-auto">
-          <h3 id="prof-name" class="underline-anime" data-i18n="description">Descrição</h3>
-          <p id="descricao" class="text-center text-sm-start h-100" data-i18n="select_technology">
-            Selecione uma tecnologia e uma breve descrição será exibida aqui!
-          </p>
-        </div>
 
-        <div class="mx-auto">
-          <ul class="grid-container mx-auto">
-            <li onclick="mostrarDescricao('Golang')" class="underline-anime cards grid-item">
-              <i class="devicon-go-original-wordmark"></i>
-            </li>
-            <li onclick="mostrarDescricao('JavaScript')" class="underline-anime cards grid-item">
-              <i class="devicon-javascript-plain"></i>
-            </li>
-            <li onclick="mostrarDescricao('TypeScript')" class="underline-anime cards grid-item">
-              <i class="devicon-typescript-plain"></i>
-            </li>
-            <li onclick="mostrarDescricao('React Native')" class="underline-anime cards grid-item">
-              <i class="devicon-react-original-wordmark"></i>
-            </li>
-            <li onclick="mostrarDescricao('Node.js')" class="underline-anime cards grid-item">
-              <i class="devicon-nodejs-plain-wordmark"></i>
-            </li>
-            <li onclick="mostrarDescricao('Python')" class="underline-anime cards grid-item">
-              <i class="devicon-python-plain-wordmark"></i>
-            </li>
-            <li onclick="mostrarDescricao('MySQL')" class="underline-anime cards grid-item">
-              <i class="devicon-mysql-plain-wordmark"></i>
-            </li>
-            <li onclick="mostrarDescricao('PostgreSQL')" class="underline-anime cards grid-item">
-              <i class="devicon-postgresql-plain-wordmark"></i>
-            </li>
-            <li onclick="mostrarDescricao('Docker')" class="underline-anime cards grid-item">
-              <i class="devicon-docker-plain-wordmark"></i>
-            </li>
-            <li onclick="mostrarDescricao('Linux')" class="underline-anime cards grid-item">
-              <i class="devicon-linux-plain"></i>
-            </li>
-            <li onclick="mostrarDescricao('Git')" class="underline-anime cards grid-item">
-              <i class="devicon-git-plain"></i>
-            </li>
-          </ul>
-        </div>
+    <!-- ===== SOBRE ===== -->
+    <section id="sobre" class="section">
+      <div class="section-head">
+        <span class="sec-num">01.</span>
+        <h2 data-i18n="about_me">O Que Eu Faço</h2>
+        <div class="sec-line"></div>
       </div>
-    </section>
-
-    <!-- SOBRE MIM SECTION -->
-    <section id="sobre-mim" class="reveal">
-      <h2 class="py-3" data-i18n="about_me"><span>{</span><span class="section-title">Sobre mim</span><span>}</span>
-      </h2>
-      <div class="sobre-content">
-        <div class="sobre-text">
-          <h3 data-i18n="professional_summary">Resumo Profissional</h3>
-          <p>
-            Profissional de TI com atuação em Service Desk N1, suporte técnico e atendimento ao usuário.
-            Experiência com ServiceNow, Active Directory, Citrix VDI, acesso remoto e diagnóstico de incidentes
-            em ambientes Windows e Linux, com foco em SLA, qualidade e resolução ágil. Estudante de Análise
-            e Desenvolvimento de Sistemas, busca oportunidades em Service Desk, Suporte Técnico ou
-            Infraestrutura, ou em funções híbridas que envolvam tecnologia, processos operacionais e logísticas.
-          </p>
-
-          <h3 data-i18n="skills_expertise">Habilidades e conhecimentos especializados</h3>
-          <p>
-            Hard Skills:
-            Service Desk / ITSM: ServiceNow, atendimento multicanal, SLA, gestão de incidentes e requisições.
-            Infraestrutura: Windows, Linux, Active Directory, Citrix VDI, acesso remoto.
-            Redes (básico): DNS, VPN, DHCP, conectividade e mapeamento de rede.
-            Segurança da Informação: Fundamentos ISO 27001, LGPD, privacidade, Cybersecurity.
-            Cloud & DevOps (iniciante): Conceitos de AWS, automação e CI/CD.
-            Programação / BD (básico): SQL, PostgreSQL, C#, Golang.
-            Ferramentas: Pacote Office.
-          <p>Soft Skills:
-            Comunicação clara, organização, agilidade, resolução de problemas, aprendizado rápido, trabalho em
-            equipe, orientação ao cliente.</p>
-          </p>
-
-          <a href="Currículo_Samuel_Barbosa_TI.pdf" download class="cv-download-inline"
+      <div class="sobre-layout">
+        <div class="sobre-left">
+          <p class="sobre-tag" data-i18n="about_tag">PROFISSIONAL EM CRESCIMENTO CONTÍNUO</p>
+          <p class="sobre-bio" data-i18n="about_bio">Profissional de TI com experiência em suporte técnico e atendimento ao usuário. Experiência com ServiceNow, Active Directory e ambientes Windows/Linux. Estudante de Análise e Desenvolvimento de Sistemas, em busca de oportunidades em TI e desenvolvimento Full-stack.</p>
+          <div class="mini-cards">
+            <div class="mini-card">
+              <strong data-i18n="about_how">Como posso ajudar</strong>
+              <ul>
+                <li data-i18n="about_h1">Suporte técnico ágil (ITSM/ServiceNow)</li>
+                <li data-i18n="about_h2">Desenvolvimento de aplicações web</li>
+                <li data-i18n="about_h3">Automação com scripts e DevOps</li>
+              </ul>
+            </div>
+            <div class="mini-card">
+              <strong data-i18n="about_work_style">Minha forma de trabalho</strong>
+              <ul>
+                <li data-i18n="about_s1">Foco em SLA e qualidade</li>
+                <li data-i18n="about_s2">Comunicação clara e objetiva</li>
+                <li data-i18n="about_s3">Aprendizado rápido e proativo</li>
+              </ul>
+            </div>
+          </div>
+          <a href="Currículo_Samuel_Barbosa_TI.pdf" download class="btn-primary" style="margin-top:1.5rem"
             data-i18n="download_full_cv">Download Completo CV</a>
         </div>
-
-        <div class="experiencia-timeline">
-          <h3 data-i18n="work_experience">Experiência Profissional</h3>
-
-          <div class="timeline-item">
-            <h4>
-              Agente de Service Desk | Sonda (Make IT Easy) – Brasília, DF
-            </h4>
-            <div class="periodo">01/2025 – 11/2025</div>
-            <p>
-              Profissional de TI com experiência em Service Desk N1, suporte técnico e atendimento ao usuário. Atuação
-              com ServiceNow, Active Directory, Citrix VDI, acesso remoto e diagnóstico de incidentes em ambientes
-              Windows e Linux. Foco em SLA, qualidade de atendimento e resolução ágil.
-              Estudante de Análise e Desenvolvimento de Sistemas, em busca de oportunidades em Service Desk, Suporte
-              Técnico ou Infraestrutura, com interesse em processos operacionais, ITSM e segurança da informação.
-            </p>
+        <div class="service-cards">
+          <div class="service-card">
+            <div class="svc-icon"><i class="fas fa-headset"></i></div>
+            <h3 data-i18n="service_1_title">Suporte Técnico N1</h3>
+            <p data-i18n="service_1_desc">Service Desk, gerenciamento de chamados, ITSM, Active Directory, Citrix VDI e
+              diagnóstico de incidentes.</p>
           </div>
-
-          <!-- <div class="timeline-item">
-            <h4>Auxiliar de Estoque / Caixa| Reserva Mini – Guará, DF</h4>
-            <div class="periodo">(11/2023 – 12/2024)</div>
-            <p>
-              Controle, armazenagem e organização de estoque, garantindo
-              acuracidade dos produtos. Recebimento, conferência e reposição
-              de mercadorias conforme procedimentos internos. - Separação e
-              embalagem de pedidos com agilidade e precisão, apoiando o fluxo
-              logístico da loja.
-            </p>
+          <div class="service-card">
+            <div class="svc-icon"><i class="fas fa-code"></i></div>
+            <h3 data-i18n="service_2_title">Desenvolvimento Full-Stack</h3>
+            <p data-i18n="service_2_desc">APIs REST em Go/Node.js, aplicações web com TypeScript, React Native e bancos
+              de dados SQL.</p>
           </div>
-
-          <div class="timeline-item">
-            <h4>
-              Recepcionista de Academia | Academia Conexão Saúde – Riacho
-              Fundo II, DF
-            </h4>
-            <div class="periodo">05/2023 – 09/2023</div>
-            <p>
-              Atendimento ao cliente e suporte no balcão. Organização de
-              documentos, cadastros e registros de clientes. Controle de
-              entrada e saída de clientes, com foco em organização e agilidade
-              no atendimento.
-            </p>
-          </div> -->
-
+          <div class="service-card">
+            <div class="svc-icon"><i class="fab fa-linux"></i></div>
+            <h3 data-i18n="service_3_title">Infraestrutura & Linux</h3>
+            <p data-i18n="service_3_desc">Ambientes Linux/Windows, Docker, Shell scripts, VPN, DNS e fundamentos de
+              segurança da informação.</p>
+          </div>
         </div>
       </div>
-
-      <h2 class="titulo-certificacoes" data-i18n="certifications"><span>{</span><span
-          class="section-title">Certificações</span><span>}</span></h2>
-      <div class="certificados-marquee">
-
-        <div class="certificados-track">
-          <div class="certificado-wrapper">
-            <div class="certificado-card">
-              <h5>Desenvolvedor C#</h5>
-              <p>SENAI - 2023</p>
-            </div>
-          </div>
-          <div class="certificado-wrapper">
-            <div class="certificado-card">
-              <h5>Cloud Onboarding</h5>
-              <p>ALURA - 2023</p>
-            </div>
-          </div>
-          <div class="certificado-wrapper">
-            <div class="certificado-card">
-              <h5>Arquitetura Comp.</h5>
-              <p>ALURA - 2023</p>
-            </div>
-          </div>
-          <div class="certificado-wrapper">
-            <div class="certificado-card">
-              <h5>React Native</h5>
-              <p>ALURA - 2023</p>
-            </div>
-          </div>
-          <div class="certificado-wrapper">
-            <div class="certificado-card">
-              <h5>Inglês - Francês</h5>
-              <p>CILT - 2023</p>
-            </div>
-          </div>
-          <div class="certificado-wrapper">
-            <div class="certificado-card">
-              <h5>Linux Fund.</h5>
-              <p>FIAP - 2025</p>
-            </div>
-          </div>
-          <div class="certificado-wrapper">
-            <div class="certificado-card">
-              <h5>Cybersecurity</h5>
-              <p>FIAP - 2025</p>
-            </div>
-          </div>
-          <div class="certificado-wrapper">
-            <div class="certificado-card">
-              <h5>ISO/IEC 27001</h5>
-              <p>SkillFront - 2025</p>
-            </div>
-          </div>
-          <div class="certificado-wrapper">
-            <div class="certificado-card">
-              <h5>ISO 9001</h5>
-              <p>SkillFront - 2025</p>
-            </div>
-          </div>
-          <div class="certificado-wrapper">
-            <div class="certificado-card">
-              <h5>ISO/IEC 20000</h5>
-              <p>SkillFront - 2025</p>
-            </div>
-          </div>
-          <div class="certificado-wrapper">
-            <div class="certificado-card">
-              <h5>Gestão Infra TI</h5>
-              <p>FIAP - 2025</p>
-            </div>
-          </div>
-          <div class="certificado-wrapper">
-            <div class="certificado-card">
-              <h5>DevOps & Agile Culture </h5>
-              <p>FIAP - 2025</p>
-            </div>
-            
-          </div>
-          <div class="certificado-wrapper">
-            <div class="certificado-card">
-              <h5> Cloud Fundamentals, Administration and Solution Architect </h5>
-              <p>FIAP - 2025</p>
-            </div>
-          </div>
-        </div>
-        <div class="certificados-track">
-          <div class="certificado-wrapper">
-            <div class="certificado-card">
-              <h5>Desenvolvedor C#</h5>
-              <p>SENAI - 2023</p>
-            </div>
-          </div>
-          <div class="certificado-wrapper">
-            <div class="certificado-card">
-              <h5>Cloud Onboarding</h5>
-              <p>ALURA - 2023</p>
-            </div>
-          </div>
-          <div class="certificado-wrapper">
-            <div class="certificado-card">
-              <h5>Arquitetura Comp.</h5>
-              <p>ALURA - 2023</p>
-            </div>
-          </div>
-          <div class="certificado-wrapper">
-            <div class="certificado-card">
-              <h5>React Native</h5>
-              <p>ALURA - 2023</p>
-            </div>
-          </div>
-          <div class="certificado-wrapper">
-            <div class="certificado-card">
-              <h5>Inglês - Francês</h5>
-              <p>CILT - 2023</p>
-            </div>
-          </div>
-          <div class="certificado-wrapper">
-            <div class="certificado-card">
-              <h5>Linux Fund.</h5>
-              <p>FIAP - 2025</p>
-            </div>
-          </div>
-          <div class="certificado-wrapper">
-            <div class="certificado-card">
-              <h5>Cybersecurity</h5>
-              <p>FIAP - 2025</p>
-            </div>
-          </div>
-          <div class="certificado-wrapper">
-            <div class="certificado-card">
-              <h5>ISO/IEC 27001</h5>
-              <p>SkillFront - 2025</p>
-            </div>
-          </div>
-          <div class="certificado-wrapper">
-            <div class="certificado-card">
-              <h5>ISO 9001</h5>
-              <p>SkillFront - 2025</p>
-            </div>
-          </div>
-          <div class="certificado-wrapper">
-            <div class="certificado-card">
-              <h5>ISO/IEC 20000</h5>
-              <p>SkillFront - 2025</p>
-            </div>
-          </div>
-          <div class="certificado-wrapper">
-            <div class="certificado-card">
-              <h5>Gestão Infra TI</h5>
-              <p>FIAP - 2025</p>
-            </div>
-          </div>
-          <div class="certificado-wrapper">
-            <div class="certificado-card">
-              <h5>DevOps & Agile Culture </h5>
-              <p>FIAP - 2025</p>
-            </div>
-          </div>
-          <div class="certificado-wrapper">
-            <div class="certificado-card">
-              <h5> Cloud Fundamentals, Administration and Solution Architect </h5>
-              <p>FIAP - 2025</p>
-            </div>
-          </div>
-        </div>
-            </div>
-
-      </div>
-
     </section>
 
-
-    <!-- PROJECTS SECTION -->
-    <section id="projetos" class="reveal">
-      <h2 class="py-3" data-i18n="projects"><span>{</span><span class="section-title">Projetos</span><span>}</span></h2>
-      <div class="projeto-grid px-sm-0 px-md-3 px-lg-5">
-        <div class="projeto border-anime border-active">
-          <div class="mt-auto h-100 d-flex flex-column justify-content-between">
-            <p class="type">
-              React Native App
-              <i class="devicon-react-original-wordmark"></i>
-            </p>
-            <h3 class="">MeusGastos - App de Controle Financeiro</h3>
-            <p class="projeto-descricao">
-              Um aplicativo mobile para controle de finanças pessoais
-              desenvolvido em React Native com Expo.
-            </p>
-            <a href="https://github.com/SamuelBarbosa1/MeusGastos" target="_blank" class="">Ver no GitHub</a>
+    <!-- ===== HABILIDADES ===== -->
+    <section id="habilidades" class="section">
+      <div class="section-head section-head-right">
+        <div class="sec-line"></div>
+        <span class="sec-num">02.</span>
+        <h2 data-i18n="technologies">Minha Stack</h2>
+      </div>
+      <div class="stack-grid">
+        <div class="stack-card">
+          <div class="stack-icon"><i class="fas fa-globe"></i></div>
+          <h3>Front-end & Web</h3>
+          <p class="stack-desc">Interfaces modernas e responsivas</p>
+          <div class="tag-cloud">
+            <button class="tech-tag" onclick="mostrarDescricao('JavaScript')">JavaScript</button>
+            <button class="tech-tag" onclick="mostrarDescricao('TypeScript')">TypeScript</button>
+            <button class="tech-tag" onclick="mostrarDescricao('React Native')">React Native</button>
           </div>
         </div>
-
-        <div class="projeto border-anime border-active">
-          <div class="mt-auto h-100 d-flex flex-column justify-content-between">
-            <p class="type">
-              React Native App
-              <i class="devicon-react-original-wordmark"></i>
-            </p>
-            <h3 class="">MiniFeed</h3>
-            <p class="projeto-descricao">
-              Um aplicativo móvel de mídia social desenvolvido com React Native e Expo. O MiniFeed permite que os
-              usuários criem contas, publiquem atualizações, curtam e comentem nas postagens, e se conectem com outras
-              pessoas em uma interface simples e intuitiva.
-            </p>
-            <a target="_blank" href="https://github.com/SamuelBarbosa1/MiniFeed" class="">Ver no GitHub</a>
+        <div class="stack-card">
+          <div class="stack-icon"><i class="fas fa-database"></i></div>
+          <h3>Back-end & BD</h3>
+          <p class="stack-desc">Lógica robusta e gerenciamento de dados</p>
+          <div class="tag-cloud">
+            <button class="tech-tag" onclick="mostrarDescricao('Golang')">Golang</button>
+            <button class="tech-tag" onclick="mostrarDescricao('Node.js')">Node.js</button>
+            <button class="tech-tag" onclick="mostrarDescricao('Python')">Python</button>
+            <button class="tech-tag" onclick="mostrarDescricao('PostgreSQL')">PostgreSQL</button>
+            <button class="tech-tag" onclick="mostrarDescricao('MySQL')">MySQL</button>
           </div>
         </div>
-
-        <div class="projeto border-anime">
-          <div class="mt-auto h-100 d-flex flex-column justify-content-between">
-            <p class="type">
-              Shell
-              <i class="devicon-bash-plain"></i>
-            </p>
-            <h3 class="">Painel OSINT Completo</h3>
-            <p class="projeto-descricao">
-              Painel OSINT Completo – Automação de Reconhecimento e
-              Inteligência em Segurança
-            </p>
-            <a href="https://github.com/SamuelBarbosa1/painel-osint-full" class="">Ver no GitHub</a>
+        <div class="stack-card">
+          <div class="stack-icon"><i class="fab fa-linux"></i></div>
+          <h3>Ferramentas & Infra</h3>
+          <p class="stack-desc">DevOps e automação de sistemas</p>
+          <div class="tag-cloud">
+            <button class="tech-tag" onclick="mostrarDescricao('Docker')">Docker</button>
+            <button class="tech-tag" onclick="mostrarDescricao('Linux')">Linux</button>
+            <button class="tech-tag" onclick="mostrarDescricao('Git')">Git</button>
+            <button class="tech-tag" onclick="mostrarDescricao('Cisco')">Cisco / Redes</button>
           </div>
         </div>
+      </div>
+      <div class="tech-panel" id="techPanel">
+        <h4 id="prof-name" data-i18n="description">Descrição</h4>
+        <p id="descricao" data-i18n="select_technology">Selecione uma tecnologia acima para ver a descrição.</p>
+      </div>
+    </section>
 
-        <div class="projeto border-anime">
-          <div class="mt-auto h-100 d-flex flex-column justify-content-between">
-            <p class="type">
-              Shell
-              <i class="devicon-bash-plain"></i>
-            </p>
-            <h3 class="">Script de Automação de Atualização do Sistema</h3>
-            <p class="projeto-descricao">
-              Este é um script shell desenvolvido para automatizar a
-              atualização do sistema em distribuições Linux baseadas em Debian
-              (como Kali Linux, Ubuntu, etc.). Ele realiza várias tarefas,
-              como atualização de pacotes, remoção de pacotes desnecessários,
-              limpeza de cache e muito mais.
-            </p>
-            <a href="https://github.com/SamuelBarbosa1/atualiza-o_kali-linux" class="">Ver no GitHub</a>
+    <!-- ===== PROJETOS ===== -->
+    <section id="projetos" class="section">
+      <div class="section-head">
+        <span class="sec-num">03.</span>
+        <h2 data-i18n="projects">Projetos em Destaque</h2>
+        <div class="sec-line"></div>
+      </div>
+      <div class="projects-list">
+        <div class="project-card project-featured">
+          <div class="project-info">
+            <p class="project-type" data-i18n="proj_type_mobile">React Native App</p>
+            <h3 data-i18n="proj_1_title">MeusGastos — App de Controle Financeiro</h3>
+            <p class="project-desc" data-i18n="proj_1_desc">Aplicativo mobile para controle de finanças pessoais desenvolvido em React Native
+              com Expo. Registre e categorize gastos com uma interface intuitiva.</p>
+            <div class="project-tags">
+              <span class="project-tag">React Native</span>
+              <span class="project-tag">Expo</span>
+              <span class="project-tag">JavaScript</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/SamuelBarbosa1/MeusGastos" target="_blank" class="btn-project"><i
+                  class="fab fa-github"></i> <span data-i18n="code_on_github">Código no GitHub</span></a>
+            </div>
           </div>
         </div>
-
-        <div class="projeto border-anime">
-          <div class="mt-auto h-100 d-flex flex-column justify-content-between">
-            <p class="type">
-              Golang
-              <i class="devicon-go-original-wordmark"></i>
-            </p>
-            <h3 class="">FilmesAPI</h3>
-            <p class="projeto-descricao">
-              Esta é uma API REST para gerenciar filmes. A API utiliza Go para
-              o backend principal e Node.js com Express como um intermediário
-              para algumas das rotas. Você pode usar o Postman para testar os
-              endpoints.
-            </p>
-            <a href="https://github.com/SamuelBarbosa1/filmesAPI" class="">Ver no GitHub</a>
+        <div class="project-card project-featured">
+          <div class="project-info">
+            <p class="project-type" data-i18n="proj_type_mobile">React Native App</p>
+            <h3 data-i18n="proj_2_title">MiniFeed — Rede Social Mobile</h3>
+            <p class="project-desc" data-i18n="proj_2_desc">Aplicativo de mídia social com React Native e Expo. Usuários criam contas, publicam
+              atualizações, curtem e comentam em uma interface simples e intuitiva.</p>
+            <div class="project-tags">
+              <span class="project-tag">React Native</span>
+              <span class="project-tag">Expo</span>
+              <span class="project-tag">JavaScript</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/SamuelBarbosa1/MiniFeed" target="_blank" class="btn-project"><i
+                  class="fab fa-github"></i> <span data-i18n="code_on_github">Código no GitHub</span></a>
+            </div>
           </div>
         </div>
+        <div class="projects-grid-2">
+          <div class="project-card">
+            <div class="project-info">
+              <p class="project-type" data-i18n="proj_type_shell">Shell Script</p>
+              <h3 data-i18n="proj_3_title">Painel OSINT Completo</h3>
+              <p class="project-desc" data-i18n="proj_3_desc">Automação de reconhecimento e inteligência em segurança. Painel completo para
+                OSINT em ambientes Linux.</p>
+              <div class="project-tags">
+                <span class="project-tag">Shell</span>
+                <span class="project-tag">Linux</span>
+                <span class="project-tag">OSINT</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/SamuelBarbosa1/painel-osint-full" target="_blank" class="btn-project"><i
+                    class="fab fa-github"></i> GitHub</a>
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-info">
+              <p class="project-type" data-i18n="proj_type_golang">Golang</p>
+              <h3 data-i18n="proj_4_title">FilmesAPI</h3>
+              <p class="project-desc" data-i18n="proj_4_desc">API REST para gerenciamento de filmes com Go no backend e Node.js/Express como
+                intermediário para algumas rotas.</p>
+              <div class="project-tags">
+                <span class="project-tag">Go</span>
+                <span class="project-tag">Node.js</span>
+                <span class="project-tag">REST API</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/SamuelBarbosa1/filmesAPI" target="_blank" class="btn-project"><i
+                    class="fab fa-github"></i> GitHub</a>
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-info">
+              <p class="project-type" data-i18n="proj_type_shell">Shell Script</p>
+              <h3 data-i18n="proj_5_title">Script Atualização Linux</h3>
+              <p class="project-desc" data-i18n="proj_5_desc">Automatiza a atualização de sistemas Debian-based (Kali, Ubuntu). Inclui limpeza
+                de cache e remoção de pacotes desnecessários.</p>
+              <div class="project-tags">
+                <span class="project-tag">Shell</span>
+                <span class="project-tag">Bash</span>
+                <span class="project-tag">Linux</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/SamuelBarbosa1/atualiza-o_kali-linux" target="_blank" class="btn-project"><i
+                    class="fab fa-github"></i> GitHub</a>
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-info">
+              <p class="project-type" data-i18n="proj_type_react">React</p>
+              <h3 data-i18n="proj_6_title">ObsidianGym</h3>
+              <p class="project-desc" data-i18n="proj_6_desc">Site de academia exibindo estatísticas de academias, alunos, funcionários e planos
+                disponíveis. Desenvolvido em React.</p>
+              <div class="project-tags">
+                <span class="project-tag">React</span>
+                <span class="project-tag">JavaScript</span>
+                <span class="project-tag">CSS</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/SamuelBarbosa1/ObsidianGym" target="_blank" class="btn-project"><i
+                    class="fab fa-github"></i> GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="projects-more">
+        <a href="https://github.com/SamuelBarbosa1" target="_blank" class="btn-outline" data-i18n="more_on_github">
+          Ver mais repositórios no GitHub <i class="fab fa-github"></i>
+        </a>
+      </div>
+    </section>
 
-        <div class="projeto border-anime">
-          <div class="mt-auto h-100 d-flex flex-column justify-content-between">
-            <p class="type">
-              React
-              <i class="devicon-react-original-wordmark"></i>
-            </p>
-            <h3 class="">ObsidianGym</h3>
-            <p class="projeto-descricao">
-              Um projeto de site de academia a onde mostra a quantidade de
-              academias que tem, número de alunos e funcionarios e os planos,
-              feito em React
-            </p>
-            <a href="https://github.com/SamuelBarbosa1/ObsidianGym" class="">Ver no GitHub</a>
+    <!-- ===== EXPERIÊNCIA ===== -->
+    <section id="experiencia" class="section">
+      <div class="section-head section-head-right">
+        <div class="sec-line"></div>
+        <span class="sec-num">04.</span>
+        <h2 data-i18n="experience_title">Experiência & Formação</h2>
+      </div>
+      <div class="exp-block">
+        <h3 class="exp-category"><i class="fas fa-briefcase"></i> <span data-i18n="experiences">Experiências</span></h3>
+        <div class="timeline-h">
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <h4 data-i18n="exp_1_role">Trainee TI</h4>
+              <p class="tl-company">Ensti — Brasília, DF</p>
+              <p class="tl-period"><i class="fas fa-calendar-alt"></i> <span data-i18n="exp_1_time">01/2026 – presente</span></p>
+              <ul>
+                <li data-i18n="exp_1_item_1">Suporte técnico ao sistema SICLUS (ERP)</li>
+                <li data-i18n="exp_1_item_2">Atendimento a módulos administrativos</li>
+                <li data-i18n="exp_1_item_3">Registro e resolução de chamados</li>
+                <li data-i18n="exp_1_item_4">Interface entre usuário e área técnica</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <h4 data-i18n="exp_2_role">Agente de Service Desk</h4>
+              <p class="tl-company">Sonda (Make IT Easy) — Brasília, DF</p>
+              <p class="tl-period"><i class="fas fa-calendar-alt"></i> 01/2025 – 11/2025</p>
+              <ul>
+                <li data-i18n="exp_2_item_1">Suporte N1 com ServiceNow / Active Directory</li>
+                <li data-i18n="exp_2_item_2">Citrix VDI, acesso remoto e diagnóstico</li>
+                <li data-i18n="exp_2_item_3">Incidentes em Windows e Linux</li>
+                <li data-i18n="exp_2_item_4">Cumprimento de SLA e qualidade</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formação -->
+      <div class="exp-block" style="margin-top:48px;">
+        <h3 class="exp-category"><i class="fas fa-graduation-cap"></i> <span data-i18n="formation_title">Formação</span></h3>
+        <div class="timeline-h">
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <h4 data-i18n="edu_1_title">Desenvolvimento FullStack & Microsserviços</h4>
+              <p class="tl-company">Alura / FIAP / Cisco / SENAI</p>
+              <p class="tl-period"><i class="fas fa-calendar-alt"></i> <span data-i18n="edu_1_time">2023 – Contínuo</span></p>
+              <ul>
+                <li data-i18n="edu_1_item_1">JavaScript, TypeScript e React Native (Alura)</li>
+                <li data-i18n="edu_1_item_2">Linux, Cybersecurity, Cloud e DevOps (FIAP)</li>
+                <li data-i18n="edu_1_item_3">Fundamentos de Redes e CCNA (Cisco)</li>
+                <li data-i18n="edu_1_item_4">Desenvolvedor C# (SENAI)</li>
+                <li data-i18n="edu_1_item_5">Docker, Gestão de Infraestrutura e Microsserviços</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <h4 data-i18n="edu_2_title">Tecnólogo em Análise e Desenvolvimento de Sistemas</h4>
+              <p class="tl-company">Faculdade UDF — Brasília, DF</p>
+              <p class="tl-period"><i class="fas fa-calendar-alt"></i> <span data-i18n="edu_2_time">2025 – 2027 (Previsto)</span></p>
+              <ul>
+                <li data-i18n="edu_2_item_1">Engenharia de software e arquitetura de sistemas</li>
+                <li data-i18n="edu_2_item_2">Desenvolvimento web, mobile e banco de dados</li>
+                <li data-i18n="edu_2_item_3">Metodologias ágeis e boas práticas de código</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CERTIFICAÇÕES ===== -->
+    <section id="certificacoes" class="section">
+      <div class="section-head">
+        <span class="sec-num">05.</span>
+        <h2 data-i18n="certifications">Certificações</h2>
+        <div class="sec-line"></div>
+      </div>
+      <div class="certificados-marquee">
+        <div class="certificados-track">
+          <div class="certificado-card">
+            <h5 data-i18n="cert_csharp">Desenvolvedor C#</h5>
+            <p>SENAI - 2023</p>
+          </div>
+          <div class="certificado-card">
+            <h5 data-i18n="cert_cloud_on">Cloud Onboarding</h5>
+            <p>ALURA - 2023</p>
+          </div>
+          <div class="certificado-card">
+            <h5 data-i18n="cert_arch_comp">Arquitetura Comp.</h5>
+            <p>ALURA - 2023</p>
+          </div>
+          <div class="certificado-card">
+            <h5 data-i18n="cert_react_native">React Native</h5>
+            <p>ALURA - 2023</p>
+          </div>
+          <div class="certificado-card">
+            <h5 data-i18n="cert_lang">Inglês - Francês</h5>
+            <p>CILT - 2023</p>
+          </div>
+          <div class="certificado-card">
+            <h5 data-i18n="cert_linux_fund">Linux Fund.</h5>
+            <p>FIAP - 2025</p>
+          </div>
+          <div class="certificado-card">
+            <h5 data-i18n="cert_cyber">Cybersecurity</h5>
+            <p>FIAP - 2025</p>
+          </div>
+          <div class="certificado-card">
+            <h5 data-i18n="cert_iso_27001">ISO/IEC 27001</h5>
+            <p>SkillFront - 2025</p>
+          </div>
+          <div class="certificado-card">
+            <h5 data-i18n="cert_iso_9001">ISO 9001</h5>
+            <p>SkillFront - 2025</p>
+          </div>
+          <div class="certificado-card">
+            <h5 data-i18n="cert_iso_20000">ISO/IEC 20000</h5>
+            <p>SkillFront - 2025</p>
+          </div>
+          <div class="certificado-card">
+            <h5 data-i18n="cert_infra">Gestão Infra TI</h5>
+            <p>FIAP - 2025</p>
+          </div>
+          <div class="certificado-card">
+            <h5 data-i18n="cert_devops">DevOps & Agile</h5>
+            <p>FIAP - 2025</p>
+          </div>
+          <div class="certificado-card">
+            <h5 data-i18n="cert_cloud_fund">Cloud Fundamentals</h5>
+            <p>FIAP - 2025</p>
+          </div>
+        </div>
+        <div class="certificados-track" aria-hidden="true">
+          <div class="certificado-card">
+            <h5 data-i18n="cert_csharp">Desenvolvedor C#</h5>
+            <p>SENAI - 2023</p>
+          </div>
+          <div class="certificado-card">
+            <h5 data-i18n="cert_cloud_on">Cloud Onboarding</h5>
+            <p>ALURA - 2023</p>
+          </div>
+          <div class="certificado-card">
+            <h5 data-i18n="cert_arch_comp">Arquitetura Comp.</h5>
+            <p>ALURA - 2023</p>
+          </div>
+          <div class="certificado-card">
+            <h5 data-i18n="cert_react_native">React Native</h5>
+            <p>ALURA - 2023</p>
+          </div>
+          <div class="certificado-card">
+            <h5 data-i18n="cert_lang">Inglês - Francês</h5>
+            <p>CILT - 2023</p>
+          </div>
+          <div class="certificado-card">
+            <h5 data-i18n="cert_linux_fund">Linux Fund.</h5>
+            <p>FIAP - 2025</p>
+          </div>
+          <div class="certificado-card">
+            <h5 data-i18n="cert_cyber">Cybersecurity</h5>
+            <p>FIAP - 2025</p>
+          </div>
+          <div class="certificado-card">
+            <h5 data-i18n="cert_iso_27001">ISO/IEC 27001</h5>
+            <p>SkillFront - 2025</p>
+          </div>
+          <div class="certificado-card">
+            <h5 data-i18n="cert_iso_9001">ISO 9001</h5>
+            <p>SkillFront - 2025</p>
+          </div>
+          <div class="certificado-card">
+            <h5 data-i18n="cert_iso_20000">ISO/IEC 20000</h5>
+            <p>SkillFront - 2025</p>
+          </div>
+          <div class="certificado-card">
+            <h5 data-i18n="cert_infra">Gestão Infra TI</h5>
+            <p>FIAP - 2025</p>
+          </div>
+          <div class="certificado-card">
+            <h5 data-i18n="cert_devops">DevOps & Agile</h5>
+            <p>FIAP - 2025</p>
+          </div>
+          <div class="certificado-card">
+            <h5 data-i18n="cert_cloud_fund">Cloud Fundamentals</h5>
+            <p>FIAP - 2025</p>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Back to Top Button -->
-  <button id="backToTop" class="back-to-top">
-    <i class="fas fa-arrow-up"></i>
-  </button>
-
-  <section>
-    <ul class="menu">
-      <div onclick="toggler()" class="toggle">
-        <i class="fa-solid fa-plus"></i>
+  <!-- ===== FOOTER / CONTATO ===== -->
+  <footer id="contato">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="logo-link">S<span class="accent">.</span>B</span>
+          <p data-i18n="footer_desc">Full-stack Developer & Especialista em Suporte TI</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer_contact">Contato</h4>
+          <a href="mailto:samuelbarbosa2001oliveira@gmail.com" class="footer-link"><i class="fas fa-envelope"></i>
+            samuelbarbosa2001oliveira@gmail.com</a>
+          <a href="https://wa.me/5561999544335" target="_blank" class="footer-link"><i class="fab fa-whatsapp"></i> (61)
+            9 9954-4335</a>
+          <span class="footer-link"><i class="fas fa-location-dot"></i> Brasília, DF</span>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer_social">Redes Sociais</h4>
+          <div class="footer-social">
+            <a href="https://github.com/SamuelBarbosa1" target="_blank" class="soc-icon" title="GitHub"><i
+                class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/samuel-oliveira-4007602b9/" target="_blank" class="soc-icon"
+              title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://t.me/Samu_Barbosa1" target="_blank" class="soc-icon" title="Telegram"><i
+                class="fab fa-telegram"></i></a>
+          </div>
+        </div>
       </div>
-      <li style="--i: 0">
-        <a href="https://www.linkedin.com/in/samuel-oliveira-4007602b9/" target="_blank">
-          <i class="devicon-linkedin-plain"></i>
-        </a>
-      </li>
-      <li style="--i: 1">
-        <a href="https://github.com/SamuelBarbosa1" target="_blank">
-          <i class="devicon-github-original"></i>
-        </a>
-      </li>
-      <li style="--i: 2">
-        <a href="https://t.me/Samu_Barbosa1" target="_blank">
-          <i class="fa-brands fa-telegram"></i>
-        </a>
-      </li>
-      <li style="--i: 3">
-        <a href="#" target="_blank"><i class="fa-solid fa-calendar"></i> </a>
-      </li>
-      <li style="--i: 4">
-        <a href="/cursos.html" target="_blank"><i class="fa-solid fa-scroll"></i>
-        </a>
-      </li>
+      <div class="footer-bottom">
+        <p>© 2026 Samuel Barbosa. <span data-i18n="footer_rights">Todos os direitos reservados.</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="backToTop" class="back-to-top" aria-label="Voltar ao topo"><i class="fas fa-arrow-up"></i></button>
+
+  <!-- Floating radial menu -->
+  <div class="float-menu" id="floatMenu">
+    <button class="float-toggle" id="floatToggle" onclick="toggleFloatMenu()" aria-label="Menu rápido">
+      <i class="fas fa-plus" id="floatIcon"></i>
+    </button>
+    <ul class="float-items">
+      <li style="--fi:0"><a href="https://www.linkedin.com/in/samuel-oliveira-4007602b9/" target="_blank"
+          title="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+      <li style="--fi:1"><a href="https://github.com/SamuelBarbosa1" target="_blank" title="GitHub"><i
+            class="fab fa-github"></i></a></li>
+      <li style="--fi:2"><a href="https://t.me/Samu_Barbosa1" target="_blank" title="Telegram"><i
+            class="fab fa-telegram"></i></a></li>
+      <li style="--fi:3"><a href="https://wa.me/5561999544335" target="_blank" title="WhatsApp"><i
+            class="fab fa-whatsapp"></i></a></li>
+      <li style="--fi:4"><a href="/cursos.html" target="_blank" title="Cursos"><i class="fas fa-scroll"></i></a></li>
     </ul>
-  </section>
+  </div>
+  <script src="src/js/tecnologias.js"></script>
   <script src="src/js/animation.js"></script>
-  <script src="src/js/menu-btn.js"></script>
   <script src="src/js/language-selector.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
-    integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
-    crossorigin="anonymous"></script>
 </body>
 
 </html>

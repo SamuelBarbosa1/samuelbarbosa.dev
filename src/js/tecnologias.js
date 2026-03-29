@@ -11,7 +11,8 @@ const descricoes = {
         "PostgreSQL": "PostgreSQL é um poderoso sistema de banco de dados objeto-relacional de código aberto. É conhecido por sua confiabilidade, robustez de recursos e desempenho.",
         "Docker": "Docker é uma plataforma para desenvolver, empacotar e executar aplicações em contêineres. Ele simplifica o deploy e garante consistência entre diferentes ambientes.",
         "Linux": "Linux é uma família de sistemas operacionais de código aberto do tipo Unix. É amplamente utilizado em servidores, computação em nuvem e ambientes de desenvolvimento.",
-        "Git": "Git é um sistema de controle de versão distribuído para rastrear mudanças em código-fonte durante o desenvolvimento de software. Ele facilita a colaboração entre desenvolvedores."
+        "Git": "Git é um sistema de controle de versão distribuído para rastrear mudanças em código-fonte durante o desenvolvimento de software. Ele facilita a colaboração entre desenvolvedores.",
+        "Cisco": "Cisco é a principal empresa de equipamentos e soluções de redes do mundo. O curso de Redes Cisco (CCNA) abrange conceitos fundamentais como TCP/IP, roteamento, switching, VLANs, protocolos de roteamento e segurança de rede."
     },
     'en': {
         "Golang": "Go is an open source programming language that makes it easy to build simple, reliable, and efficient software. It's known for its fast compilation, garbage collection, and concurrency support.",
@@ -24,7 +25,8 @@ const descricoes = {
         "PostgreSQL": "PostgreSQL is a powerful, open-source object-relational database system. It's known for its reliability, feature robustness, and performance.",
         "Docker": "Docker is a platform for developing, shipping, and running applications in containers. It simplifies deployment and ensures consistency across environments.",
         "Linux": "Linux is a family of open-source Unix-like operating systems. It's widely used in servers, cloud computing, and development environments.",
-        "Git": "Git is a distributed version control system for tracking changes in source code during software development. It facilitates collaboration among developers."
+        "Git": "Git is a distributed version control system for tracking changes in source code during software development. It facilitates collaboration among developers.",
+        "Cisco": "Cisco is the world's leading networking equipment and solutions company. The Cisco Networking (CCNA) course covers fundamental concepts such as TCP/IP, routing, switching, VLANs, routing protocols and network security."
     },
     'es': {
         "Golang": "Go es un lenguaje de programación de código abierto que facilita la creación de software simple, confiable y eficiente. Es conocido por su compilación rápida, recolección de basura y soporte de concurrencia.",
@@ -37,7 +39,8 @@ const descricoes = {
         "PostgreSQL": "PostgreSQL es un potente sistema de base de datos objeto-relacional de código abierto. Es conocido por su confiabilidad, robustez de características y rendimiento.",
         "Docker": "Docker es una plataforma para desarrollar, enviar y ejecutar aplicaciones en contenedores. Simplifica el despliegue y garantiza la consistencia entre entornos.",
         "Linux": "Linux es una familia de sistemas operativos de código abierto tipo Unix. Se utiliza ampliamente en servidores, computación en la nube y entornos de desarrollo.",
-        "Git": "Git es un sistema de control de versiones distribuido para rastrear cambios en el código fuente durante el desarrollo de software. Facilita la colaboración entre desarrolladores."
+        "Git": "Git es un sistema de control de versiones distribuido para rastrear cambios en el código fuente durante el desarrollo de software. Facilita la colaboración entre desarrolladores.",
+        "Cisco": "Cisco es la empresa líder mundial en equipos y soluciones de redes. El curso de Redes Cisco (CCNA) cubre conceptos fundamentales como TCP/IP, enrutamiento, switching, VLANs, protocolos de enrutamiento y seguridad de red."
     }
 }
 

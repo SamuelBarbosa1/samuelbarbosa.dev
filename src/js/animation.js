@@ -1,108 +1,120 @@
+// =========================================
+// SAMUEL BARBOSA PORTFOLIO — animation.js
+// =========================================
 
-const sr = ScrollReveal();
+const header = document.getElementById('header');
+const backToTopBtn = document.getElementById('backToTop');
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobileNav');
+const navLinks = document.querySelectorAll('.nav-link');
+const sections = document.querySelectorAll('section[id]');
 
-const cards = document.querySelectorAll('.cards');
-for (let i = 0; i < cards.length; i++) {
-    sr.reveal(cards[i], {
-        origin: 'top',
-        distance: '30px',
-        duration: 800,
-        delay: 400 * i,
-    });
-}
-
-
-
-const projects = document.querySelectorAll('.projeto')
-for (let i = 0; i < projects.length; i++) {
-    sr.reveal(projects[i], {
-        delay: 100 * i,
-        origin: 'top',
-        distance: '20px',
-        duration: 2000
-    })
-}
-
-const nave = document.querySelectorAll('.nave')
-// faça uma animação diagonal
-for (let i = 0; i < nave.length; i++) {
-    sr.reveal(nave[i], {
-        delay: 100 * i,
-        origin: 'top',
-        distance: '150px',
-        duration: 3000
-    })
-}
-
-// Animação para a seção Sobre Mim
-const sobreMimSection = document.querySelector('#sobre-mim');
-if (sobreMimSection) {
-    sr.reveal(sobreMimSection, {
-        delay: 200,
-        origin: 'bottom',
-        distance: '30px',
-        duration: 1500
-    });
-    
-    const sobreContentItems = document.querySelectorAll('.sobre-text, .experiencia-timeline');
-    for (let i = 0; i < sobreContentItems.length; i++) {
-        sr.reveal(sobreContentItems[i], {
-            delay: 300 * (i + 1),
-            origin: 'left',
-            distance: '30px',
-            duration: 1000
-        });
-    }
-    
-    const timelineItems = document.querySelectorAll('.timeline-item');
-    for (let i = 0; i < timelineItems.length; i++) {
-        sr.reveal(timelineItems[i], {
-            delay: 200 * (i + 1),
-            origin: 'left',
-            distance: '20px',
-            duration: 800
-        });
-    }
-}
-
-// Header hide/show on scroll functionality
+// ===== SCROLL: Hide/show header + Back to top =====
 let lastScrollTop = 0;
-const header = document.querySelector('.fixed-top-header');
-const backToTopButton = document.getElementById('backToTop');
 
-window.addEventListener('scroll', function() {
-    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    
-    // Hide/show header based on scroll direction
-    if (scrollTop > lastScrollTop && scrollTop > 100) {
-        // Scrolling down - hide header
-        header.classList.add('hide');
-    } else {
-        // Scrolling up - show header
-        header.classList.remove('hide');
-    }
-    
-    // Show/hide back to top button
-    if (scrollTop > 300) {
-        backToTopButton.classList.add('show');
-    } else {
-        backToTopButton.classList.remove('show');
-    }
-    
-    lastScrollTop = scrollTop;
+window.addEventListener('scroll', () => {
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+  // Hide header on scroll down
+  if (scrollTop > lastScrollTop && scrollTop > 100) {
+    header.classList.add('hide');
+  } else {
+    header.classList.remove('hide');
+  }
+
+  // Add scrolled class for stronger bg
+  header.classList.toggle('scrolled', scrollTop > 50);
+
+  // Back to top button
+  backToTopBtn.classList.toggle('show', scrollTop > 400);
+
+  lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 });
 
-// Back to top button functionality
-backToTopButton.addEventListener('click', function() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
+// ===== BACK TO TOP =====
+backToTopBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-// Show header when mouse is near the top of the screen
-document.addEventListener('mousemove', function(e) {
-    if (e.clientY < 100) {
-        header.classList.remove('hide');
-    }
+// ===== HAMBURGER MENU =====
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  mobileNav.classList.toggle('open');
 });
+
+// Close mobile nav on link click
+document.querySelectorAll('.nav-link-mobile').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    mobileNav.classList.remove('open');
+  });
+});
+
+// ===== SCROLL SPY: Active nav link =====
+const scrollObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+      });
+    }
+  });
+}, { rootMargin: '-40% 0px -55% 0px' });
+
+sections.forEach(section => scrollObserver.observe(section));
+
+// ===== REVEAL ON SCROLL =====
+const reveals = document.querySelectorAll('.section, .project-card, .stack-card, .service-card, .tl-item, .code-card, .cert-block');
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, i * 60);
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
+
+reveals.forEach(el => {
+  el.classList.add('reveal');
+  revealObserver.observe(el);
+});
+
+// Fallback: reveal any still-hidden elements after 1.5s (e.g. already-in-viewport on load)
+setTimeout(() => {
+  document.querySelectorAll('.reveal:not(.visible)').forEach((el, i) => {
+    setTimeout(() => el.classList.add('visible'), i * 80);
+  });
+}, 800);
+
+// ===== TECH TAG ACTIVE STATE =====
+document.querySelectorAll('.tech-tag').forEach(tag => {
+  tag.addEventListener('click', () => {
+    document.querySelectorAll('.tech-tag').forEach(t => t.classList.remove('active'));
+    tag.classList.add('active');
+  });
+});
+
+// Show mouse near top to reveal header
+document.addEventListener('mousemove', (e) => {
+  if (e.clientY < 80) header.classList.remove('hide');
+});
+
+// ===== FLOATING RADIAL MENU =====
+function toggleFloatMenu() {
+  const menu = document.getElementById('floatMenu');
+  if (menu) menu.classList.toggle('open');
+}
+
+// Close float menu when clicking outside
+document.addEventListener('click', (e) => {
+  const menu = document.getElementById('floatMenu');
+  const toggle = document.getElementById('floatToggle');
+  if (menu && toggle && !menu.contains(e.target)) {
+    menu.classList.remove('open');
+  }
+});
+
