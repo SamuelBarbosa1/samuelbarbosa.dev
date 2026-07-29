@@ -158,7 +158,7 @@ function Home() {
                     <div className="term-item">
                       <span className="term-key">[+] CYBER</span>
                       <span className="term-sep">:</span>
-                      <span className="term-val purple-val">OSINT, Crypto, AppSec</span>
+                      <span className="term-val purple-val">OSINT & Cryptography</span>
                     </div>
                     <div className="term-item">
                       <span className="term-key">[+] STATUS</span>

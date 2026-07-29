@@ -11,13 +11,13 @@ function About() {
 
   const skills = [
     { name: "Linux / Shell Script", percent: 80 },
-    { name: "Golang (Backend)", percent: 75 },
+    { name: "Networking (TCP/IP, DNS)", percent: 70 },
     { name: "Cybersecurity", percent: 70 },
+    { name: "Golang (Backend)", percent: 70 },
     { name: "JavaScript / TypeScript", percent: 70 },
     { name: "Docker & DevOps", percent: 65 },
     { name: "React / React Native", percent: 60 },
     { name: "PostgreSQL / MySQL", percent: 60 },
-    { name: "Networking (TCP/IP, DNS)", percent: 55 },
   ];
 
   useEffect(() => {
