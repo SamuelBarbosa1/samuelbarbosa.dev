@@ -14,8 +14,11 @@ import {
   FaMapMarkerAlt,
   FaDownload,
 } from "react-icons/fa";
+import { useLanguage } from "../../context/LanguageContext";
 
 function Home() {
+  const { t } = useLanguage();
+
   return (
     <section>
       <Container fluid className="hero-section" id="home">
@@ -24,15 +27,15 @@ function Home() {
           <Row className="align-items-center">
             <Col lg={7} className="text-start">
               <div className="eyebrow">
-                FULL STACK • CYBERSECURITY • APIs REST
+                {t("home.eyebrow")}
               </div>
 
               <h1 className="hero-glitch-title">
-                <span className="glitch-line" data-text="DEVELOPER FULL STACK">
-                  DEVELOPER FULL STACK
+                <span className="glitch-line" data-text={t("home.titleGlitch1")}>
+                  {t("home.titleGlitch1")}
                 </span>
-                <span className="glitch-line hl" data-text="& CYBER">
-                  &amp; CYBER
+                <span className="glitch-line hl" data-text={t("home.titleGlitch2")}>
+                  {t("home.titleGlitch2")}
                 </span>
               </h1>
 
@@ -41,9 +44,7 @@ function Home() {
               </div>
 
               <p className="hero-subtitle">
-                Interfaces, APIs e ferramentas de segurança — projetadas entre
-                estágio, faculdade e curiosidade com o mundo do cyber. Focado em
-                construir soluções eficientes, escaláveis e seguras.
+                {t("home.subtitle")}
               </p>
 
               <div className="d-flex flex-wrap gap-3 mt-4">
@@ -54,13 +55,13 @@ function Home() {
                   rel="noreferrer"
                   className="btn-cyber-primary"
                 >
-                  <FaDownload /> DOWNLOAD CV
+                  <FaDownload /> {t("home.downloadCv")}
                 </a>
                 <a href="#projetos" className="btn-cyber-ghost">
-                  VER PROJETOS <FaArrowRight />
+                  {t("home.viewProjects")} <FaArrowRight />
                 </a>
                 <a href="#cyber-lab" className="btn-cyber-ghost">
-                  {">_"} CYBER LAB
+                  {t("home.cyberLabBtn")}
                 </a>
                 <a
                   href="https://www.linkedin.com/in/samuel-oliveira-4007602b9/"
@@ -116,7 +117,7 @@ function Home() {
                   <FaMapMarkerAlt
                     style={{ color: "var(--cyber-cyan)", marginRight: "6px" }}
                   />
-                  Brasília, DF
+                  {t("home.location")}
                 </span>
               </div>
             </Col>
@@ -138,32 +139,32 @@ function Home() {
                     <div className="term-item">
                       <span className="term-key">[+] DEV</span>
                       <span className="term-sep">:</span>
-                      <span className="term-val cyan-val">Samuel Barbosa</span>
+                      <span className="term-val cyan-val">{t("home.whoami.dev")}</span>
                     </div>
                     <div className="term-item">
                       <span className="term-key">[+] ROLE</span>
                       <span className="term-sep">:</span>
-                      <span className="term-val green-val">Full-Stack &amp; Cyber</span>
+                      <span className="term-val green-val">{t("home.whoami.role")}</span>
                     </div>
                     <div className="term-item">
                       <span className="term-key">[+] STACK</span>
                       <span className="term-sep">:</span>
-                      <span className="term-val">Go, TypeScript, Node, React</span>
+                      <span className="term-val">{t("home.whoami.stack")}</span>
                     </div>
                     <div className="term-item">
                       <span className="term-key">[+] INFRA</span>
                       <span className="term-sep">:</span>
-                      <span className="term-val">Linux, Docker, Kali Linux</span>
+                      <span className="term-val">{t("home.whoami.infra")}</span>
                     </div>
                     <div className="term-item">
                       <span className="term-key">[+] CYBER</span>
                       <span className="term-sep">:</span>
-                      <span className="term-val purple-val">OSINT & Cryptography</span>
+                      <span className="term-val purple-val">{t("home.whoami.cyber")}</span>
                     </div>
                     <div className="term-item">
                       <span className="term-key">[+] STATUS</span>
                       <span className="term-sep">:</span>
-                      <span className="term-val status-val">Ready to build 🚀</span>
+                      <span className="term-val status-val">{t("home.whoami.status")}</span>
                     </div>
                   </div>
                 </div>
@@ -180,25 +181,25 @@ function Home() {
             <div className="stat-number">
               2<span style={{ marginLeft: "5px" }}>+</span>
             </div>
-            <div className="stat-label">Anos Estudando TI</div>
+            <div className="stat-label">{t("home.stats.yearsStudying")}</div>
           </div>
           <div className="stat-card">
             <div className="stat-number">
               6<span style={{ marginLeft: "5px" }}>+</span>
             </div>
-            <div className="stat-label">Projetos Desenvolvidos</div>
+            <div className="stat-label">{t("home.stats.projectsDeveloped")}</div>
           </div>
           <div className="stat-card">
             <div className="stat-number">
               10<span style={{ marginLeft: "5px" }}>+</span>
             </div>
-            <div className="stat-label">Certificações</div>
+            <div className="stat-label">{t("home.stats.certifications")}</div>
           </div>
           <div className="stat-card">
             <div className="stat-number">
               1<span style={{ marginLeft: "5px" }}>+</span>
             </div>
-            <div className="stat-label">Ano de Exp. em TI</div>
+            <div className="stat-label">{t("home.stats.yearsExperience")}</div>
           </div>
         </div>
       </Container>

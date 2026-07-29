@@ -1,159 +1,29 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
+import { useLanguage } from "../context/LanguageContext";
 
-const COMMANDS = {
-  help: {
-    description: "Mostrar comandos disponíveis",
-    action: () => ({
-      type: "output",
-      lines: [
-        { text: "╔══════════════════════════════════════════╗", class: "cyan" },
-        { text: "║      SAMUEL.OS — Terminal de Comandos    ║", class: "cyan" },
-        { text: "╚══════════════════════════════════════════╝", class: "cyan" },
-        { text: "" },
-        { text: "  whoami        → Quem é Samuel Barbosa", class: "output" },
-        { text: "  projetos      → Ir para seção de projetos", class: "output" },
-        { text: "  seguranca     → Ir para seção de segurança", class: "output" },
-        { text: "  skills        → Ir para stack & habilidades", class: "output" },
-        { text: "  experiencia   → Ir para experiência", class: "output" },
-        { text: "  contato       → Ir para contato", class: "output" },
-        { text: "  github        → Abrir GitHub", class: "output" },
-        { text: "  linkedin      → Abrir LinkedIn", class: "output" },
-        { text: "  clear         → Limpar terminal", class: "output" },
-        { text: "" },
-        { text: "  💀 sudo hire samuel → ???", class: "output" },
-      ],
-    }),
-  },
-  whoami: {
-    description: "Quem é Samuel Barbosa",
-    action: () => ({
-      type: "output",
-      lines: [
-        { text: "┌─────────────────────────────────────────┐", class: "cyan" },
-        { text: "│  Samuel Barbosa de Oliveira              │", class: "cyan" },
-        { text: "├─────────────────────────────────────────┤", class: "cyan" },
-        { text: "│  Role:     Full-Stack Dev & Cyber        │", class: "output" },
-        { text: "│  Stack:    Go, TypeScript, React Native  │", class: "output" },
-        { text: "│  Infra:    Linux, Docker, Kali           │", class: "output" },
-        { text: "│  Location: Brasília, DF — Brasil         │", class: "output" },
-        { text: "│  Status:   OPEN TO WORK 🟢               │", class: "success" },
-        { text: "└─────────────────────────────────────────┘", class: "cyan" },
-      ],
-    }),
-  },
-  projetos: {
-    description: "Ir para projetos",
-    action: () => {
-      setTimeout(() => {
-        document.getElementById("projetos")?.scrollIntoView({ behavior: "smooth" });
-      }, 300);
-      return {
-        type: "output",
-        lines: [{ text: "[+] Navegando para seção de projetos...", class: "success" }],
-        close: true,
-      };
-    },
-  },
-  seguranca: {
-    description: "Ir para seção de segurança",
-    action: () => {
-      setTimeout(() => {
-        document.getElementById("cyber-lab")?.scrollIntoView({ behavior: "smooth" });
-      }, 300);
-      return {
-        type: "output",
-        lines: [{ text: "[+] Navegando para Cyber Lab...", class: "success" }],
-        close: true,
-      };
-    },
-  },
-  cyber: {
-    description: "Alias para seguranca",
-    action: () => COMMANDS.seguranca.action(),
-  },
-  skills: {
-    description: "Ir para stack",
-    action: () => {
-      setTimeout(() => {
-        document.getElementById("stack")?.scrollIntoView({ behavior: "smooth" });
-      }, 300);
-      return {
-        type: "output",
-        lines: [{ text: "[+] Navegando para Stack & Habilidades...", class: "success" }],
-        close: true,
-      };
-    },
-  },
-  experiencia: {
-    description: "Ir para experiência",
-    action: () => {
-      setTimeout(() => {
-        document.getElementById("experiencia")?.scrollIntoView({ behavior: "smooth" });
-      }, 300);
-      return {
-        type: "output",
-        lines: [{ text: "[+] Navegando para Experiência...", class: "success" }],
-        close: true,
-      };
-    },
-  },
-  contato: {
-    description: "Ir para contato",
-    action: () => {
-      setTimeout(() => {
-        document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" });
-      }, 300);
-      return {
-        type: "output",
-        lines: [{ text: "[+] Navegando para Contato...", class: "success" }],
-        close: true,
-      };
-    },
-  },
-  github: {
-    description: "Abrir GitHub",
-    action: () => {
-      window.open("https://github.com/SamuelBarbosa1", "_blank");
-      return {
-        type: "output",
-        lines: [{ text: "[+] Abrindo GitHub... github.com/SamuelBarbosa1", class: "success" }],
-      };
-    },
-  },
-  linkedin: {
-    description: "Abrir LinkedIn",
-    action: () => {
-      window.open("https://www.linkedin.com/in/samuel-oliveira-4007602b9/", "_blank");
-      return {
-        type: "output",
-        lines: [{ text: "[+] Abrindo LinkedIn...", class: "success" }],
-      };
-    },
-  },
-  clear: {
-    description: "Limpar terminal",
-    action: () => ({ type: "clear" }),
-  },
-};
-
-// Easter Egg
 const SUDO_HIRE = "sudo hire samuel";
 
 function CommandTerminal() {
+  const { t, language } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
-  const [history, setHistory] = useState([
-    {
-      type: "output",
-      lines: [
-        { text: "SAMUEL.OS v4.19-kali — Terminal Interativo", class: "cyan" },
-        { text: 'Digite "help" para ver os comandos disponíveis.', class: "output" },
-        { text: "" },
-      ],
-    },
-  ]);
+  const [history, setHistory] = useState([]);
   const [input, setInput] = useState("");
   const inputRef = useRef(null);
   const bodyRef = useRef(null);
+
+  // Initialize initial history message based on language
+  useEffect(() => {
+    setHistory([
+      {
+        type: "output",
+        lines: [
+          { text: t("terminal.welcomeTitle"), class: "cyan" },
+          { text: t("terminal.welcomeMsg"), class: "output" },
+          { text: "" },
+        ],
+      },
+    ]);
+  }, [language, t]);
 
   const toggleTerminal = useCallback(() => {
     setIsOpen((prev) => !prev);
@@ -188,33 +58,135 @@ function CommandTerminal() {
     }
   }, [history]);
 
+  const handleCommandExec = (cmdKey) => {
+    switch (cmdKey) {
+      case "help":
+        return {
+          type: "output",
+          lines: [
+            { text: "╔══════════════════════════════════════════╗", class: "cyan" },
+            { text: `║      ${t("terminal.welcomeTitle")}    ║`, class: "cyan" },
+            { text: "╚══════════════════════════════════════════╝", class: "cyan" },
+            { text: "" },
+            { text: `  whoami        → ${t("terminal.commands.whoami")}`, class: "output" },
+            { text: `  projetos      → ${t("terminal.commands.projetos")}`, class: "output" },
+            { text: `  seguranca     → ${t("terminal.commands.seguranca")}`, class: "output" },
+            { text: `  skills        → ${t("terminal.commands.skills")}`, class: "output" },
+            { text: `  experiencia   → ${t("terminal.commands.experiencia")}`, class: "output" },
+            { text: `  contato       → ${t("terminal.commands.contato")}`, class: "output" },
+            { text: `  github        → ${t("terminal.commands.github")}`, class: "output" },
+            { text: `  linkedin      → ${t("terminal.commands.linkedin")}`, class: "output" },
+            { text: `  clear         → ${t("terminal.commands.clear")}`, class: "output" },
+            { text: "" },
+            { text: "  💀 sudo hire samuel → ???", class: "output" },
+          ],
+        };
+      case "whoami":
+        return {
+          type: "output",
+          lines: [
+            { text: "┌─────────────────────────────────────────┐", class: "cyan" },
+            { text: "│  Samuel Barbosa de Oliveira              │", class: "cyan" },
+            { text: "├─────────────────────────────────────────┤", class: "cyan" },
+            { text: `│  Role:     ${t("home.whoami.role")}`, class: "output" },
+            { text: `│  Stack:    ${t("home.whoami.stack")}`, class: "output" },
+            { text: `│  Infra:    ${t("home.whoami.infra")}`, class: "output" },
+            { text: `│  Location: ${t("home.location")}`, class: "output" },
+            { text: `│  Status:   ${t("home.whoami.status")}`, class: "success" },
+            { text: "└─────────────────────────────────────────┘", class: "cyan" },
+          ],
+        };
+      case "projetos":
+        setTimeout(() => {
+          document.getElementById("projetos")?.scrollIntoView({ behavior: "smooth" });
+        }, 300);
+        return {
+          type: "output",
+          lines: [{ text: t("terminal.navMessages.projetos"), class: "success" }],
+          close: true,
+        };
+      case "seguranca":
+      case "cyber":
+        setTimeout(() => {
+          document.getElementById("cyber-lab")?.scrollIntoView({ behavior: "smooth" });
+        }, 300);
+        return {
+          type: "output",
+          lines: [{ text: t("terminal.navMessages.seguranca"), class: "success" }],
+          close: true,
+        };
+      case "skills":
+      case "stack":
+        setTimeout(() => {
+          document.getElementById("stack")?.scrollIntoView({ behavior: "smooth" });
+        }, 300);
+        return {
+          type: "output",
+          lines: [{ text: t("terminal.navMessages.skills"), class: "success" }],
+          close: true,
+        };
+      case "experiencia":
+        setTimeout(() => {
+          document.getElementById("experiencia")?.scrollIntoView({ behavior: "smooth" });
+        }, 300);
+        return {
+          type: "output",
+          lines: [{ text: t("terminal.navMessages.experiencia"), class: "success" }],
+          close: true,
+        };
+      case "contato":
+        setTimeout(() => {
+          document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" });
+        }, 300);
+        return {
+          type: "output",
+          lines: [{ text: t("terminal.navMessages.contato"), class: "success" }],
+          close: true,
+        };
+      case "github":
+        window.open("https://github.com/SamuelBarbosa1", "_blank");
+        return {
+          type: "output",
+          lines: [{ text: t("terminal.navMessages.github"), class: "success" }],
+        };
+      case "linkedin":
+        window.open("https://www.linkedin.com/in/samuel-oliveira-4007602b9/", "_blank");
+        return {
+          type: "output",
+          lines: [{ text: t("terminal.navMessages.linkedin"), class: "success" }],
+        };
+      case "clear":
+        return { type: "clear" };
+      default:
+        return null;
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const trimmed = input.trim().toLowerCase();
     if (!trimmed) return;
 
-    // Add user input to history
     const inputEntry = {
       type: "input",
       text: trimmed,
     };
 
-    // Check for easter egg
     if (trimmed === SUDO_HIRE) {
       const easterEgg = {
         type: "output",
         lines: [
           { text: "" },
-          { text: "🔓 [SUDO] Permissão concedida!", class: "success" },
+          { text: t("terminal.easterEggPermission"), class: "success" },
           { text: "" },
           { text: "╔══════════════════════════════════════════╗", class: "success" },
-          { text: "║   🎉 ACESSO CONCEDIDO COM SUCESSO! 🎉     ║", class: "success" },
+          { text: `║   ${t("terminal.easterEggBanner")}   ║`, class: "success" },
           { text: "║                                          ║", class: "success" },
-          { text: "║   Samuel Barbosa está disponível para    ║", class: "success" },
-          { text: "║   novas oportunidades em Full-Stack      ║", class: "success" },
-          { text: "║   Development & Cybersecurity.           ║", class: "success" },
+          { text: `║   ${t("terminal.easterEggText1")}   ║`, class: "success" },
+          { text: `║   ${t("terminal.easterEggText2")}   ║`, class: "success" },
+          { text: `║   ${t("terminal.easterEggText3")}   ║`, class: "success" },
           { text: "║                                          ║", class: "success" },
-          { text: "║   Redirecionando para contato...         ║", class: "success" },
+          { text: `║   ${t("terminal.easterEggRedirect")}   ║`, class: "success" },
           { text: "╚══════════════════════════════════════════╝", class: "success" },
         ],
         close: true,
@@ -230,10 +202,8 @@ function CommandTerminal() {
       return;
     }
 
-    // Check commands
-    const cmd = COMMANDS[trimmed];
-    if (cmd) {
-      const result = cmd.action();
+    const result = handleCommandExec(trimmed);
+    if (result) {
       if (result.type === "clear") {
         setHistory([]);
         setInput("");
@@ -248,8 +218,8 @@ function CommandTerminal() {
       const errorEntry = {
         type: "output",
         lines: [
-          { text: `[-] Comando não encontrado: "${trimmed}"`, class: "error" },
-          { text: '    Digite "help" para ver comandos disponíveis.', class: "output" },
+          { text: `${t("terminal.notFound")}"${trimmed}"`, class: "error" },
+          { text: t("terminal.typeHelp"), class: "output" },
         ],
       };
       setHistory((prev) => [...prev, inputEntry, errorEntry]);
@@ -264,11 +234,11 @@ function CommandTerminal() {
       <button
         className="floating-terminal-btn"
         onClick={toggleTerminal}
-        aria-label="Abrir terminal"
-        title="Terminal interativo (pressione /)"
+        aria-label={t("terminal.btnAria")}
+        title={`Terminal (${t("terminal.btnTooltip")})`}
       >
         {">_"}
-        <span className="floating-terminal-tooltip">Pressione /</span>
+        <span className="floating-terminal-tooltip">{t("terminal.btnTooltip")}</span>
       </button>
 
       {/* Terminal Overlay */}
@@ -279,7 +249,7 @@ function CommandTerminal() {
               <span className="boot-dot red" onClick={() => setIsOpen(false)} style={{ cursor: "pointer" }}></span>
               <span className="boot-dot yellow"></span>
               <span className="boot-dot green"></span>
-              <span className="cmd-header-title">samuel@kali:~ (Terminal)</span>
+              <span className="cmd-header-title">{t("terminal.title")}</span>
             </div>
             <div className="cmd-body" ref={bodyRef}>
               {history.map((entry, idx) => {
@@ -315,7 +285,7 @@ function CommandTerminal() {
                   onChange={(e) => setInput(e.target.value)}
                   autoComplete="off"
                   spellCheck="false"
-                  placeholder="digite um comando..."
+                  placeholder={t("terminal.placeholder")}
                 />
               </form>
             </div>

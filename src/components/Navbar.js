@@ -10,10 +10,12 @@ import {
   AiOutlineFundProjectionScreen,
 } from "react-icons/ai";
 import { FaShieldAlt, FaBriefcase, FaCode, FaDownload } from "react-icons/fa";
+import { useLanguage } from "../context/LanguageContext";
 
 function NavBar() {
   const [expand, updateExpanded] = useState(false);
   const [navColour, updateNavbar] = useState(false);
+  const { language, setLanguage, t } = useLanguage();
 
   function scrollHandler() {
     if (window.scrollY >= 20) {
@@ -63,7 +65,7 @@ function NavBar() {
               }}
               className="mono"
             >
-              {"// DEV & CYBER"}
+              {t("nav.tag")}
             </span>
           </span>
         </Navbar.Brand>
@@ -71,7 +73,34 @@ function NavBar() {
         <div className="d-none d-xl-flex align-items-center ms-3">
           <div className="status-badge">
             <span className="status-dot"></span>
-            OPEN TO WORK
+            {t("nav.openToWork")}
+          </div>
+        </div>
+
+        {/* Language Switcher for Desktop */}
+        <div className="d-none d-lg-flex align-items-center ms-3">
+          <div className="lang-switcher-container">
+            <button
+              className={`lang-btn ${language === "pt" ? "active" : ""}`}
+              onClick={() => setLanguage("pt")}
+              title="Português"
+            >
+              🇧🇷 PT
+            </button>
+            <button
+              className={`lang-btn ${language === "en" ? "active" : ""}`}
+              onClick={() => setLanguage("en")}
+              title="English"
+            >
+              🇺🇸 EN
+            </button>
+            <button
+              className={`lang-btn ${language === "es" ? "active" : ""}`}
+              onClick={() => setLanguage("es")}
+              title="Español"
+            >
+              🇪🇸 ES
+            </button>
           </div>
         </div>
 
@@ -92,7 +121,7 @@ function NavBar() {
                 <AiOutlineHome
                   style={{ marginBottom: "2px", marginRight: "4px" }}
                 />
-                HOME
+                {t("nav.home")}
               </Nav.Link>
             </Nav.Item>
 
@@ -101,7 +130,7 @@ function NavBar() {
                 <AiOutlineUser
                   style={{ marginBottom: "2px", marginRight: "4px" }}
                 />
-                SOBRE
+                {t("nav.about")}
               </Nav.Link>
             </Nav.Item>
 
@@ -113,7 +142,7 @@ function NavBar() {
                 <AiOutlineFundProjectionScreen
                   style={{ marginBottom: "2px", marginRight: "4px" }}
                 />
-                PROJETOS
+                {t("nav.projects")}
               </Nav.Link>
             </Nav.Item>
 
@@ -130,7 +159,7 @@ function NavBar() {
                     color: "#00ff9d",
                   }}
                 />
-                SEGURANÇA
+                {t("nav.cyber")}
               </Nav.Link>
             </Nav.Item>
 
@@ -142,7 +171,7 @@ function NavBar() {
                 <FaCode
                   style={{ marginBottom: "2px", marginRight: "4px" }}
                 />
-                STACK
+                {t("nav.stack")}
               </Nav.Link>
             </Nav.Item>
 
@@ -154,7 +183,7 @@ function NavBar() {
                 <FaBriefcase
                   style={{ marginBottom: "2px", marginRight: "4px" }}
                 />
-                EXPERIÊNCIA
+                {t("nav.experience")}
               </Nav.Link>
             </Nav.Item>
 
@@ -170,8 +199,43 @@ function NavBar() {
                 <FaDownload
                   style={{ marginBottom: "2px", marginRight: "4px" }}
                 />
-                CURRÍCULO
+                {t("nav.resume")}
               </Nav.Link>
+            </Nav.Item>
+
+            {/* Mobile Language Switcher */}
+            <Nav.Item className="d-lg-none my-2">
+              <div className="d-flex justify-content-center">
+                <div className="lang-switcher-container">
+                  <button
+                    className={`lang-btn ${language === "pt" ? "active" : ""}`}
+                    onClick={() => {
+                      setLanguage("pt");
+                      updateExpanded(false);
+                    }}
+                  >
+                    🇧🇷 PT
+                  </button>
+                  <button
+                    className={`lang-btn ${language === "en" ? "active" : ""}`}
+                    onClick={() => {
+                      setLanguage("en");
+                      updateExpanded(false);
+                    }}
+                  >
+                    🇺🇸 EN
+                  </button>
+                  <button
+                    className={`lang-btn ${language === "es" ? "active" : ""}`}
+                    onClick={() => {
+                      setLanguage("es");
+                      updateExpanded(false);
+                    }}
+                  >
+                    🇪🇸 ES
+                  </button>
+                </div>
+              </div>
             </Nav.Item>
           </Nav>
         </Navbar.Collapse>

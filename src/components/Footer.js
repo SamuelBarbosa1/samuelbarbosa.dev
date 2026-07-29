@@ -9,10 +9,12 @@ import {
   FaMapMarkerAlt,
   FaArrowUp,
 } from "react-icons/fa";
+import { useLanguage } from "../context/LanguageContext";
 
 function Footer() {
   let date = new Date();
   let year = date.getFullYear();
+  const { t } = useLanguage();
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -22,8 +24,8 @@ function Footer() {
     <footer className="footer" id="contato">
       <Container>
         <div className="section-comment mb-4">
-          <span>{"/* contato */"}</span>
-          <span>vamos conversar?</span>
+          <span>{t("footer.comment1")}</span>
+          <span>{t("footer.comment2")}</span>
         </div>
 
         <Row className="gy-4 align-items-start text-start">
@@ -47,13 +49,12 @@ function Footer() {
               style={{ fontSize: "0.88rem", color: "var(--cyber-muted)" }}
               className="mt-2 mb-0"
             >
-              Full-Stack Developer & Especialista em Suporte TI. Focado em
-              soluções robustas em Golang, TypeScript e Cibersegurança.
+              {t("footer.bio")}
             </p>
 
             <div className="status-badge mt-3">
               <span className="status-dot"></span>
-              DISPONÍVEL PARA OPORTUNIDADES
+              {t("footer.status")}
             </div>
           </Col>
 
@@ -62,7 +63,7 @@ function Footer() {
               className="mono mb-3"
               style={{ fontSize: "1rem", color: "#fff", fontWeight: 700 }}
             >
-              Contato Direto
+              {t("footer.directContact")}
             </h4>
             <div
               className="d-flex flex-column gap-2"
@@ -115,7 +116,7 @@ function Footer() {
                 <FaMapMarkerAlt
                   style={{ color: "var(--cyber-cyan)", marginRight: "8px" }}
                 />
-                Brasília, DF — Brasil
+                {t("footer.location")}
               </span>
             </div>
           </Col>
@@ -125,7 +126,7 @@ function Footer() {
               className="mono mb-3"
               style={{ fontSize: "1rem", color: "#fff", fontWeight: 700 }}
             >
-              Redes & Links
+              {t("footer.networksLinks")}
             </h4>
             <div className="d-flex gap-3 justify-content-lg-end mb-3">
               <a
@@ -176,7 +177,7 @@ function Footer() {
                 cursor: "pointer",
               }}
             >
-              <FaArrowUp /> Voltar ao Topo
+              <FaArrowUp /> {t("footer.backToTop")}
             </button>
           </Col>
         </Row>
@@ -189,7 +190,7 @@ function Footer() {
             className="mono mb-0"
             style={{ fontSize: "0.8rem", color: "var(--cyber-muted)" }}
           >
-            {year} Samuel Barbosa. Todos os direitos reservados.
+            {year} {t("footer.rights")}
           </p>
         </div>
       </Container>

@@ -1,32 +1,32 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { FaHeadset, FaCode, FaLinux, FaCheckCircle } from "react-icons/fa";
+import { useLanguage } from "../../context/LanguageContext";
 
 function Home2() {
+  const { t } = useLanguage();
+  const helpList = t("home2.helpList");
+  const workStyleList = t("home2.workStyleList");
+
   return (
     <Container fluid className="section-padding" id="sobre">
       <Container>
         <div className="section-comment">
-          <span>{"/* um pouco sobre mim */"}</span>
-          <span>quem está por trás do código</span>
+          <span>{t("home2.comment1")}</span>
+          <span>{t("home2.comment2")}</span>
         </div>
 
         <div className="section-head text-start">
-          <span className="sec-num">01.</span>
-          <h2>O Que Eu Faço</h2>
+          <span className="sec-num">{t("home2.num")}</span>
+          <h2>{t("home2.title")}</h2>
           <div className="sec-line"></div>
         </div>
 
         <Row className="mb-5 text-start align-items-center">
           <Col lg={7}>
-            <div className="eyebrow">{">_"} PROFISSIONAL EM CRESCIMENTO CONTÍNUO</div>
+            <div className="eyebrow">{t("home2.growingEyebrow")}</div>
             <p className="hero-subtitle mb-4" style={{ fontSize: "1.05rem" }}>
-              Sou <strong style={{ color: "var(--cyber-cyan)" }}>Samuel Barbosa</strong>, tenho experiência prática em
-              suporte técnico, resolução de incidentes e automação de processos.
-              Atualmente em transição e especialização em{" "}
-              <span className="green-hl">Desenvolvimento Full-Stack</span> e{" "}
-              <span className="green-hl">Cibersegurança</span>.
-              Com curiosidade como motor, código como ferramenta e Linux como ambiente favorito.
+              {t("home2.bio")}
             </p>
 
             <Row className="g-3">
@@ -40,7 +40,7 @@ function Home2() {
                       fontWeight: 700,
                     }}
                   >
-                    Como posso ajudar
+                    {t("home2.helpTitle")}
                   </h4>
                   <ul
                     className="list-unstyled mt-3 mb-0"
@@ -49,33 +49,18 @@ function Home2() {
                       color: "var(--cyber-muted)",
                     }}
                   >
-                    <li className="mb-2">
-                      <FaCheckCircle
-                        style={{
-                          color: "var(--cyber-green)",
-                          marginRight: "8px",
-                        }}
-                      />
-                      Suporte N1 com foco em SLA e diagnóstico
-                    </li>
-                    <li className="mb-2">
-                      <FaCheckCircle
-                        style={{
-                          color: "var(--cyber-green)",
-                          marginRight: "8px",
-                        }}
-                      />
-                      Desenvolvimento de APIs em Go & Node.js
-                    </li>
-                    <li className="mb-0">
-                      <FaCheckCircle
-                        style={{
-                          color: "var(--cyber-green)",
-                          marginRight: "8px",
-                        }}
-                      />
-                      Automação de tarefas e scripts Shell Linux
-                    </li>
+                    {Array.isArray(helpList) &&
+                      helpList.map((item, index) => (
+                        <li key={index} className={index === helpList.length - 1 ? "mb-0" : "mb-2"}>
+                          <FaCheckCircle
+                            style={{
+                              color: "var(--cyber-green)",
+                              marginRight: "8px",
+                            }}
+                          />
+                          {item}
+                        </li>
+                      ))}
                   </ul>
                 </div>
               </Col>
@@ -90,7 +75,7 @@ function Home2() {
                       fontWeight: 700,
                     }}
                   >
-                    Minha forma de trabalho
+                    {t("home2.workStyleTitle")}
                   </h4>
                   <ul
                     className="list-unstyled mt-3 mb-0"
@@ -99,33 +84,18 @@ function Home2() {
                       color: "var(--cyber-muted)",
                     }}
                   >
-                    <li className="mb-2">
-                      <FaCheckCircle
-                        style={{
-                          color: "var(--cyber-cyan)",
-                          marginRight: "8px",
-                        }}
-                      />
-                      Foco em SLA, qualidade e documentação
-                    </li>
-                    <li className="mb-2">
-                      <FaCheckCircle
-                        style={{
-                          color: "var(--cyber-cyan)",
-                          marginRight: "8px",
-                        }}
-                      />
-                      Comunicação clara e objetiva
-                    </li>
-                    <li className="mb-0">
-                      <FaCheckCircle
-                        style={{
-                          color: "var(--cyber-cyan)",
-                          marginRight: "8px",
-                        }}
-                      />
-                      Resolução estruturada de incidentes
-                    </li>
+                    {Array.isArray(workStyleList) &&
+                      workStyleList.map((item, index) => (
+                        <li key={index} className={index === workStyleList.length - 1 ? "mb-0" : "mb-2"}>
+                          <FaCheckCircle
+                            style={{
+                              color: "var(--cyber-cyan)",
+                              marginRight: "8px",
+                            }}
+                          />
+                          {item}
+                        </li>
+                      ))}
                   </ul>
                 </div>
               </Col>
@@ -142,7 +112,7 @@ function Home2() {
                   className="mono"
                   style={{ fontSize: "1.2rem", color: "#fff" }}
                 >
-                  Suporte Técnico N1
+                  {t("home2.service1.title")}
                 </h3>
                 <p
                   style={{
@@ -151,8 +121,7 @@ function Home2() {
                     margin: 0,
                   }}
                 >
-                  Service Desk, gerenciamento de chamados, ITSM, Active
-                  Directory, Citrix VDI e diagnóstico estruturado de incidentes.
+                  {t("home2.service1.desc")}
                 </p>
               </div>
 
@@ -164,7 +133,7 @@ function Home2() {
                   className="mono"
                   style={{ fontSize: "1.2rem", color: "#fff" }}
                 >
-                  Desenvolvimento Full-Stack
+                  {t("home2.service2.title")}
                 </h3>
                 <p
                   style={{
@@ -173,8 +142,7 @@ function Home2() {
                     margin: 0,
                   }}
                 >
-                  APIs REST eficientes em Go/Node.js, aplicações web com
-                  TypeScript, React Native e bancos SQL.
+                  {t("home2.service2.desc")}
                 </p>
               </div>
 
@@ -186,7 +154,7 @@ function Home2() {
                   className="mono"
                   style={{ fontSize: "1.2rem", color: "#fff" }}
                 >
-                  Infraestrutura & Cyber
+                  {t("home2.service3.title")}
                 </h3>
                 <p
                   style={{
@@ -195,8 +163,7 @@ function Home2() {
                     margin: 0,
                   }}
                 >
-                  Ambientes Linux/Windows, Docker, Shell scripts, Kali Linux,
-                  VPN, DNS, OSINT e cibersegurança.
+                  {t("home2.service3.desc")}
                 </p>
               </div>
             </div>
