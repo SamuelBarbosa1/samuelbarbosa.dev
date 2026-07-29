@@ -55,7 +55,7 @@ function NavBar() {
             }}
             className="mono"
           >
-            // DEV & CYBER
+            {"// DEV & CYBER"}
           </span>
         </Navbar.Brand>
 

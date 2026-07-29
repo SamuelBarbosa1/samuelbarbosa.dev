@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Particle from "../Particle";
 import { FaShieldAlt, FaLock, FaServer, FaCodeBranch, FaSearch } from "react-icons/fa";
-import { SiKalilinux, SiGo, SiWireshark } from "react-icons/si";
+import { SiKalilinux, SiGo } from "react-icons/si";
 
 function CyberLab() {
   return (

@@ -40,7 +40,7 @@ function Footer() {
                   marginLeft: "6px",
                 }}
               >
-                // SAMUEL BARBOSA
+                {"// SAMUEL BARBOSA"}
               </span>
             </div>
             <p
