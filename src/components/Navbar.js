@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
-import pdf from "../Assets/Projects/Currículo_Samuel_Barbosa_TI.pdf";
+import logo from "../Assets/logo.png";
+import pdf from "../Assets/Projects/Curriculo_Samuel_Barbosa_TI.pdf";
 import {
   AiOutlineHome,
   AiOutlineUser,
@@ -43,19 +44,27 @@ function NavBar() {
       <Container>
         <Navbar.Brand
           href="#home"
-          className="navbar-brand-cyber"
+          className="navbar-brand-cyber d-flex align-items-center"
           onClick={(e) => handleNavClick(e, "home")}
         >
-          S<span className="accent">.</span>B{" "}
-          <span
-            style={{
-              fontSize: "0.82rem",
-              color: "var(--cyber-cyan)",
-              marginLeft: "8px",
-            }}
-            className="mono"
-          >
-            {"// DEV & CYBER"}
+          <img
+            src={logo}
+            className="img-fluid logo"
+            alt="brand logo"
+            style={{ maxHeight: "35px", marginRight: "10px" }}
+          />
+          <span>
+            S<span className="accent">.</span>B{" "}
+            <span
+              style={{
+                fontSize: "0.82rem",
+                color: "var(--cyber-cyan)",
+                marginLeft: "8px",
+              }}
+              className="mono"
+            >
+              {"// DEV & CYBER"}
+            </span>
           </span>
         </Navbar.Brand>
 

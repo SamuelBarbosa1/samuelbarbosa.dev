@@ -3,7 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import Particle from "../Particle";
 import Home2 from "./Home2";
 import Type from "./Type";
-import pdf from "../../Assets/Projects/Currículo_Samuel_Barbosa_TI.pdf";
+import pdf from "../../Assets/Projects/Curriculo_Samuel_Barbosa_TI.pdf";
 import {
   FaArrowRight,
   FaGithub,
