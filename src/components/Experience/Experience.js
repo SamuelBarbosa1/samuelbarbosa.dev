@@ -55,6 +55,7 @@ function Experience() {
   ];
 
   const certs = [
+    { name: "Conceitos Básicos de Redes", org: "Cisco - 2026" },
     { name: "ISO/IEC 27001", org: "SkillFront - 2025" },
     { name: "Cybersecurity", org: "FIAP - 2025" },
     { name: "Linux Fundamentals", org: "FIAP - 2025" },
@@ -66,7 +67,6 @@ function Experience() {
     { name: "Desenvolvedor C#", org: "SENAI - 2023" },
     { name: "React Native", org: "ALURA - 2023" },
   ];
-
   return (
     <Container fluid className="section-padding" id="experiencia">
       <Particle />
