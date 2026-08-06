@@ -1,37 +1,39 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import { ImPointRight } from "react-icons/im";
+import { useLanguage } from "../../context/LanguageContext";
 
 function AboutCard() {
+  const { t } = useLanguage();
+  const hobbies = t("aboutCard.hobbies");
+
   return (
     <Card className="lab-card">
       <Card.Body>
         <blockquote className="blockquote mb-0 text-start">
           <p style={{ textAlign: "justify", lineHeight: 1.7 }}>
-            Olá! Eu sou <span className="purple">Samuel Barbosa</span>, de <span className="purple">Brasília, Brasil</span>.
+            {t("aboutCard.greeting")}
             <br />
-            Atualmente estudo TI e estou me especializando em <span className="green-hl">Desenvolvimento Backend (Go)</span> e <span className="green-hl">Cibersegurança</span>.
-            <br />
-            <br />
-            Tenho grande entusiasmo por construir arquiteturas resilientes, scripts de automação para Kali Linux, ferramentas de criptografia e explorar como defender sistemas contra ameaças cibernéticas.
+            {t("aboutCard.p1")}
             <br />
             <br />
-            Além de codificar e estudar cibersegurança, também gosto de:
+            {t("aboutCard.p2")}
+            <br />
+            <br />
+            {t("aboutCard.hobbiesTitle")}
           </p>
           <ul style={{ listStyleType: "none", paddingLeft: "10px" }}>
-            <li className="about-activity mb-2">
-              <ImPointRight style={{ color: "var(--cyber-cyan)", marginRight: "8px" }} /> Pesquisar vulnerabilidades &amp; praticar laboratórios de Segurança
-            </li>
-            <li className="about-activity mb-2">
-              <ImPointRight style={{ color: "var(--cyber-cyan)", marginRight: "8px" }} /> Desenvolver APIs eficientes e concisas em Golang
-            </li>
-            <li className="about-activity mb-2">
-              <ImPointRight style={{ color: "var(--cyber-cyan)", marginRight: "8px" }} /> Automatizar rotas de manutenção no Linux (Shell Script)
-            </li>
+            {Array.isArray(hobbies) &&
+              hobbies.map((hobby, index) => (
+                <li className="about-activity mb-2" key={index}>
+                  <ImPointRight style={{ color: "var(--cyber-cyan)", marginRight: "8px" }} />
+                  {hobby}
+                </li>
+              ))}
           </ul>
 
           <p className="mt-4" style={{ color: "var(--cyber-cyan)", fontStyle: "italic", fontFamily: "'JetBrains Mono', monospace" }}>
-            "Entender como as coisas quebram é o melhor caminho para aprender a construí-las de forma segura."
+            {t("aboutCard.quote")}
           </p>
           <footer className="blockquote-footer text-end mt-1" style={{ color: "var(--cyber-muted)" }}>
             Samuel Barbosa

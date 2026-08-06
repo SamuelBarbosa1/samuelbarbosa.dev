@@ -1421,3 +1421,45 @@ pre,
     font-size: 1.5rem;
   }
 }
+
+/* -------------------------------------------------------------------------- */
+/* Language Switcher                                                          */
+/* -------------------------------------------------------------------------- */
+.lang-switcher-container {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid var(--cyber-border);
+  border-radius: 20px;
+  padding: 3px 6px;
+  margin-left: 12px;
+}
+
+.lang-btn {
+  background: transparent;
+  border: none;
+  color: var(--cyber-muted);
+  font-family: "Fira Code", monospace;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.lang-btn:hover {
+  color: #ffffff;
+  background: rgba(0, 240, 255, 0.15);
+}
+
+.lang-btn.active {
+  color: #090d16;
+  background: var(--cyber-cyan);
+  font-weight: 700;
+  box-shadow: 0 0 10px var(--cyber-cyan-glow);
+}

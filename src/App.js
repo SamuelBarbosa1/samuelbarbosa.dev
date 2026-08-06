@@ -9,6 +9,7 @@ import Experience from "./components/Experience/Experience";
 import Footer from "./components/Footer";
 import ScrollProgress from "./components/ScrollProgress";
 import CommandTerminal from "./components/CommandTerminal";
+import { LanguageProvider } from "./context/LanguageContext";
 import "./style.css";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -25,7 +26,7 @@ function App() {
   }, []);
 
   return (
-    <>
+    <LanguageProvider>
       <Preloader load={load} />
       <div className="App" id={load ? "no-scroll" : "scroll"}>
         <ScrollProgress />
@@ -38,7 +39,7 @@ function App() {
         <Footer />
         <CommandTerminal />
       </div>
-    </>
+    </LanguageProvider>
   );
 }
 

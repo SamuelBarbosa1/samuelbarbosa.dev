@@ -4,20 +4,22 @@ import Particle from "../Particle";
 import Techstack from "./Techstack";
 import Toolstack from "./Toolstack";
 import Github from "./Github";
+import { useLanguage } from "../../context/LanguageContext";
 
 function About() {
   const [animated, setAnimated] = useState(false);
   const sectionRef = useRef(null);
+  const { t } = useLanguage();
 
   const skills = [
     { name: "Linux / Shell Script", percent: 80 },
-    { name: "Golang (Backend)", percent: 75 },
+    { name: "Networking (TCP/IP, DNS)", percent: 70 },
     { name: "Cybersecurity", percent: 70 },
+    { name: "Golang (Backend)", percent: 70 },
     { name: "JavaScript / TypeScript", percent: 70 },
     { name: "Docker & DevOps", percent: 65 },
     { name: "React / React Native", percent: 60 },
     { name: "PostgreSQL / MySQL", percent: 60 },
-    { name: "Networking (TCP/IP, DNS)", percent: 55 },
   ];
 
   useEffect(() => {
@@ -47,17 +49,16 @@ function About() {
       <Particle />
       <Container>
         <div className="section-comment">
-          <span>{"/* stack & habilidades */"}</span>
-          <span>o que eu domino</span>
+          <span>{t("about.comment1")}</span>
+          <span>{t("about.comment2")}</span>
         </div>
 
         <div className="text-center mb-4">
           <h2 className="section-title">
-            Tech <span className="green-hl">Stack</span> & Habilidades
+            Tech <span className="green-hl">{t("about.title1Colored")}</span> & Habilidades
           </h2>
           <p className="section-subtitle">
-            Tecnologias que utilizo para desenvolvimento, infraestrutura e
-            estudos de cibersegurança.
+            {t("about.subtitle1")}
           </p>
         </div>
 
@@ -91,14 +92,14 @@ function About() {
         {/* Tech Icons Grid */}
         <div className="text-center mt-4 mb-4">
           <h3 className="section-title" style={{ fontSize: "1.6rem" }}>
-            <span className="purple">Tecnologias</span> & Ferramentas
+            <span className="purple">{t("about.title2Colored")}</span> & Ferramentas
           </h3>
         </div>
         <Techstack />
 
         <div className="text-center mt-4 mb-4">
           <h3 className="section-title" style={{ fontSize: "1.6rem" }}>
-            <span className="green-hl">Ferramentas</span> de Trabalho & Lab
+            <span className="green-hl">{t("about.title3Colored")}</span> de Trabalho & Lab
           </h3>
         </div>
         <Toolstack />

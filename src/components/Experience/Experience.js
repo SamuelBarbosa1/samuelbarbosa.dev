@@ -2,57 +2,13 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Particle from "../Particle";
 import { FaCalendarAlt, FaCertificate } from "react-icons/fa";
+import { useLanguage } from "../../context/LanguageContext";
 
 function Experience() {
-  const experiences = [
-    {
-      role: "Trainee TI",
-      company: "Ensti — Brasília, DF",
-      period: "02/2026 – atualmente",
-      details: [
-        "Suporte técnico especializado ao sistema SICLUS (ERP)",
-        "Atendimento e suporte aos módulos administrativos",
-        "Registro, acompanhamento e resolução de chamados técnicos",
-        "Interface de comunicação entre usuários e a área técnica de desenvolvimento",
-      ],
-    },
-    {
-      role: "Agente de Service Desk",
-      company: "Sonda (Make IT Easy) — Brasília, DF",
-      period: "01/2025 – 11/2025",
-      details: [
-        "Suporte N1 utilizando ServiceNow e Active Directory",
-        "Acesso remoto, suporte a Citrix VDI e diagnóstico inicial",
-        "Tratamento e resolução de incidentes em sistemas Windows e Linux",
-        "Cumprimento rigoroso de SLA e métricas de qualidade de atendimento",
-      ],
-    },
-  ];
+  const { t } = useLanguage();
 
-  const education = [
-    {
-      title: "Tecnólogo em Análise e Desenvolvimento de Sistemas",
-      institution: "Faculdade UDF — Brasília, DF",
-      period: "2025 – 2027 (Previsto)",
-      details: [
-        "Engenharia de software e arquitetura de sistemas",
-        "Desenvolvimento web, mobile e modelagem de banco de dados",
-        "Metodologias ágeis e boas práticas de código limpo",
-      ],
-    },
-    {
-      title: "Desenvolvimento FullStack & Microsserviços",
-      institution: "Alura / FIAP / Cisco / SENAI",
-      period: "2023 – Contínuo",
-      details: [
-        "JavaScript, TypeScript e React Native (Alura)",
-        "Linux, Cybersecurity, Cloud e DevOps (FIAP)",
-        "Fundamentos de Redes e CCNA (Cisco)",
-        "Desenvolvedor C# (SENAI)",
-        "Docker e Gestão de Infraestrutura de TI",
-      ],
-    },
-  ];
+  const experiences = t("experience.jobs") || [];
+  const education = t("experience.edu") || [];
 
   const certs = [
     { name: "Conceitos Básicos de Redes", org: "Cisco - 2026" },
@@ -72,117 +28,121 @@ function Experience() {
       <Particle />
       <Container>
         <div className="section-comment">
-          <span>{"/* trajetória */"}</span>
-          <span>experiência & formação</span>
+          <span>{t("experience.comment1")}</span>
+          <span>{t("experience.comment2")}</span>
         </div>
 
         {/* Experiência Profissional */}
         <div className="section-head text-start mb-4">
-          <span className="sec-num">04.</span>
-          <h2>Experiência Profissional</h2>
+          <span className="sec-num">{t("experience.num1")}</span>
+          <h2>{t("experience.title1")}</h2>
           <div className="sec-line"></div>
         </div>
 
         <Row className="mb-5 text-start">
           <Col lg={12}>
             <div className="timeline-cyber">
-              {experiences.map((exp, index) => (
-                <div key={index} className="timeline-item mb-4">
-                  <div className="cyber-card">
-                    <div className="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-2">
-                      <div>
-                        <h3 className="timeline-title">{exp.role}</h3>
-                        <span className="timeline-company">{exp.company}</span>
+              {Array.isArray(experiences) &&
+                experiences.map((exp, index) => (
+                  <div key={index} className="timeline-item mb-4">
+                    <div className="cyber-card">
+                      <div className="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-2">
+                        <div>
+                          <h3 className="timeline-title">{exp.role}</h3>
+                          <span className="timeline-company">{exp.company}</span>
+                        </div>
+                        <span
+                          className="mono"
+                          style={{
+                            fontSize: "0.85rem",
+                            color: "var(--cyber-cyan)",
+                          }}
+                        >
+                          <FaCalendarAlt style={{ marginRight: "6px" }} />
+                          {exp.period}
+                        </span>
                       </div>
-                      <span
-                        className="mono"
+                      <ul
+                        className="mt-3 mb-0 ps-3"
                         style={{
-                          fontSize: "0.85rem",
-                          color: "var(--cyber-cyan)",
+                          fontSize: "0.92rem",
+                          color: "var(--cyber-muted)",
+                          lineHeight: 1.7,
                         }}
                       >
-                        <FaCalendarAlt style={{ marginRight: "6px" }} />
-                        {exp.period}
-                      </span>
+                        {Array.isArray(exp.details) &&
+                          exp.details.map((item, i) => (
+                            <li key={i}>{item}</li>
+                          ))}
+                      </ul>
                     </div>
-                    <ul
-                      className="mt-3 mb-0 ps-3"
-                      style={{
-                        fontSize: "0.92rem",
-                        color: "var(--cyber-muted)",
-                        lineHeight: 1.7,
-                      }}
-                    >
-                      {exp.details.map((item, i) => (
-                        <li key={i}>{item}</li>
-                      ))}
-                    </ul>
                   </div>
-                </div>
-              ))}
+                ))}
             </div>
           </Col>
         </Row>
 
         {/* Formação Acadêmica */}
         <div className="section-head text-start mb-4 mt-5">
-          <span className="sec-num">05.</span>
-          <h2>Formação Acadêmica</h2>
+          <span className="sec-num">{t("experience.num2")}</span>
+          <h2>{t("experience.title2")}</h2>
           <div className="sec-line"></div>
         </div>
 
         <Row className="mb-5 text-start">
           <Col lg={12}>
             <div className="timeline-cyber">
-              {education.map((edu, index) => (
-                <div key={index} className="timeline-item mb-4">
-                  <div className="cyber-card">
-                    <div className="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-2">
-                      <div>
-                        <h3 className="timeline-title">{edu.title}</h3>
-                        <span className="timeline-company">
-                          {edu.institution}
+              {Array.isArray(education) &&
+                education.map((edu, index) => (
+                  <div key={index} className="timeline-item mb-4">
+                    <div className="cyber-card">
+                      <div className="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-2">
+                        <div>
+                          <h3 className="timeline-title">{edu.title}</h3>
+                          <span className="timeline-company">
+                            {edu.institution}
+                          </span>
+                        </div>
+                        <span
+                          className="mono"
+                          style={{
+                            fontSize: "0.85rem",
+                            color: "var(--cyber-green)",
+                          }}
+                        >
+                          <FaCalendarAlt style={{ marginRight: "6px" }} />
+                          {edu.period}
                         </span>
                       </div>
-                      <span
-                        className="mono"
+                      <ul
+                        className="mt-3 mb-0 ps-3"
                         style={{
-                          fontSize: "0.85rem",
-                          color: "var(--cyber-green)",
+                          fontSize: "0.92rem",
+                          color: "var(--cyber-muted)",
+                          lineHeight: 1.7,
                         }}
                       >
-                        <FaCalendarAlt style={{ marginRight: "6px" }} />
-                        {edu.period}
-                      </span>
+                        {Array.isArray(edu.details) &&
+                          edu.details.map((item, i) => (
+                            <li key={i}>{item}</li>
+                          ))}
+                      </ul>
                     </div>
-                    <ul
-                      className="mt-3 mb-0 ps-3"
-                      style={{
-                        fontSize: "0.92rem",
-                        color: "var(--cyber-muted)",
-                        lineHeight: 1.7,
-                      }}
-                    >
-                      {edu.details.map((item, i) => (
-                        <li key={i}>{item}</li>
-                      ))}
-                    </ul>
                   </div>
-                </div>
-              ))}
+                ))}
             </div>
           </Col>
         </Row>
 
         {/* Certificações */}
         <div className="section-comment">
-          <span>{"/* certificações */"}</span>
-          <span>qualificações e competências</span>
+          <span>{t("experience.commentCerts1")}</span>
+          <span>{t("experience.commentCerts2")}</span>
         </div>
 
         <div className="section-head text-start mb-4">
-          <span className="sec-num">06.</span>
-          <h2>Certificações</h2>
+          <span className="sec-num">{t("experience.num3")}</span>
+          <h2>{t("experience.title3")}</h2>
           <div className="sec-line"></div>
         </div>
 

@@ -4,6 +4,16 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
+// Mensagem estilizada no Console do DevTools
+console.log(
+  "%c> acesso ao console detectado.",
+  "color: #00ff9d; font-family: monospace; font-size: 14px; font-weight: bold;"
+);
+console.log(
+  "%c> curioso(a), hein? bora trabalhar juntos -> samuelbarbosa2001oliveira@gmail.com",
+  "color: #00e5ff; font-family: monospace; font-size: 13px; font-weight: bold;"
+);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>

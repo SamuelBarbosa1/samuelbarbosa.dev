@@ -3,24 +3,26 @@ import { Container, Row, Col } from "react-bootstrap";
 import Particle from "../Particle";
 import { FaShieldAlt, FaLock, FaServer, FaCodeBranch, FaSearch } from "react-icons/fa";
 import { SiKalilinux, SiGo } from "react-icons/si";
+import { useLanguage } from "../../context/LanguageContext";
 
 function CyberLab() {
+  const { t } = useLanguage();
+
   return (
     <Container fluid className="cyber-lab-section" id="cyber-lab">
       <Particle />
       <Container>
         <div className="section-comment">
-          <span>{"/* cybersecurity & research */"}</span>
-          <span>ferramentas e laboratório</span>
+          <span>{t("cyberlab.comment1")}</span>
+          <span>{t("cyberlab.comment2")}</span>
         </div>
 
         <div className="text-center mb-5">
           <h1 className="section-title">
-            Laboratório de <span className="green-hl">Cibersegurança</span>
+            Laboratório de <span className="green-hl">{t("cyberlab.titleColored")}</span>
           </h1>
           <p className="section-subtitle">
-            Ferramentas, scripts de automação Linux, algoritmos de criptografia
-            e práticas de defesa & teste.
+            {t("cyberlab.subtitle")}
           </p>
         </div>
 
@@ -85,11 +87,9 @@ function CyberLab() {
               <div className="lab-card-icon">
                 <SiKalilinux style={{ color: "#2088ff" }} />
               </div>
-              <h3 className="lab-card-title">Automação Kali Linux</h3>
+              <h3 className="lab-card-title">{t("cyberlab.cards.kaliTitle")}</h3>
               <p className="lab-card-desc">
-                Desenvolvo scripts Shell para manutenção automatizada,
-                atualização de pacotes e preparação de ambientes de auditoria no
-                Kali Linux.
+                {t("cyberlab.cards.kaliDesc")}
               </p>
               <div className="mt-3">
                 <span className="project-tag cyber">Shell Script</span>
@@ -103,7 +103,7 @@ function CyberLab() {
                 className="btn-cyber-ghost mt-3"
                 style={{ fontSize: "0.85rem", padding: "8px 16px" }}
               >
-                <FaCodeBranch /> Ver Repositório
+                <FaCodeBranch /> {t("cyberlab.viewRepo")}
               </a>
             </div>
           </Col>
@@ -116,10 +116,9 @@ function CyberLab() {
               <div className="lab-card-icon">
                 <SiGo style={{ color: "#00add8" }} />
               </div>
-              <h3 className="lab-card-title">Criptografia Go</h3>
+              <h3 className="lab-card-title">{t("cyberlab.cards.cryptoTitle")}</h3>
               <p className="lab-card-desc">
-                Algoritmos criptográficos, hashing seguro e conceitos de
-                chave pública/privada em Golang.
+                {t("cyberlab.cards.cryptoDesc")}
               </p>
               <div className="mt-3">
                 <span className="project-tag">Go</span>
@@ -132,7 +131,7 @@ function CyberLab() {
                 className="btn-cyber-ghost mt-3"
                 style={{ fontSize: "0.82rem", padding: "7px 14px" }}
               >
-                <FaLock /> Explorar
+                <FaLock /> {t("cyberlab.explore")}
               </a>
             </div>
           </Col>
@@ -142,10 +141,9 @@ function CyberLab() {
               <div className="lab-card-icon">
                 <FaSearch style={{ color: "#00ff9d" }} />
               </div>
-              <h3 className="lab-card-title">Painel OSINT</h3>
+              <h3 className="lab-card-title">{t("cyberlab.cards.osintTitle")}</h3>
               <p className="lab-card-desc">
-                Automação de reconhecimento e inteligência de fontes
-                abertas para ambientes Linux.
+                {t("cyberlab.cards.osintDesc")}
               </p>
               <div className="mt-3">
                 <span className="project-tag cyber">OSINT</span>
@@ -168,10 +166,9 @@ function CyberLab() {
               <div className="lab-card-icon">
                 <FaShieldAlt style={{ color: "#00ff9d" }} />
               </div>
-              <h3 className="lab-card-title">AppSec</h3>
+              <h3 className="lab-card-title">{t("cyberlab.cards.appsecTitle")}</h3>
               <p className="lab-card-desc">
-                OWASP Top 10, sanitização de inputs, prevenção SQLi/XSS e
-                autenticação segura JWT/OAuth.
+                {t("cyberlab.cards.appsecDesc")}
               </p>
               <div className="mt-3">
                 <span className="project-tag cyber">OWASP</span>
@@ -185,10 +182,9 @@ function CyberLab() {
               <div className="lab-card-icon">
                 <FaServer style={{ color: "#00f0ff" }} />
               </div>
-              <h3 className="lab-card-title">Networking</h3>
+              <h3 className="lab-card-title">{t("cyberlab.cards.netTitle")}</h3>
               <p className="lab-card-desc">
-                TCP/IP, análise de pacotes com Wireshark, permissões de
-                sistema e controle de acessos Linux.
+                {t("cyberlab.cards.netDesc")}
               </p>
               <div className="mt-3">
                 <span className="project-tag">TCP/IP</span>
